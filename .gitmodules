@@ -1,0 +1,3 @@
+[submodule "themes/SimpleTheme"]
+	path = themes/SimpleTheme
+	url = https://github.com/1hiking/SimpleTheme.git
