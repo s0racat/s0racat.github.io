@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "soracqt.github.io"
 languageCode = "ja-jp" # Language will defined on meta.
 relativeURLs = true
 title = "忘れないように... 2"
