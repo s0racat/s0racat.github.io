@@ -1,3 +1,39 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "/"
+languageCode = "ja-jp" # Language will defined on meta.
+relativeURLs = true
+title = "忘れないように... 2"
+theme = "SimpleTheme"
+sectionPagesMenu = "main" # Enables automatic navigation bar.
+
+#[build]
+#writeStats = true # Needed for PostCSS
+
+#[menu]
+# https://gohugo.io/content-management/menus/
+#[[menu.main]]
+#identifier = "About"
+#name = "About"
+#url = "/about/"
+#weight = 10
+
+[[menu.main]]
+homepage = "Tags"
+name = "Tags"
+url = "/tags/"
+weight = 10
+
+[params]
+dateFormat = "2006/01/02" # How the date will be displayed on posts.
+copyright = "soracat" # Will be displayed on Footer.
+#footerText = "SampleText" # Any text you might want to display will go here.
+#logo = "/path/to/image" # Supports SVG.
+logoalt = "icon" # alt description of the logo.
+#postCSS = true # For postCSS support.
+
+[author]
+name = "soracat" # Name of the author.
+github = "soracqt" # https://github.com/example.
+
+[markup]
+  [markup.highlight]
+    style = 'nord' # Add nord to match theme's palette
