@@ -5,8 +5,8 @@ title = "忘れないように... 2"
 theme = "SimpleTheme"
 sectionPagesMenu = "main" # Enables automatic navigation bar.
 
-#[build]
-#writeStats = true # Needed for PostCSS
+[build]
+writeStats = true # Needed for PostCSS
 
 [menu]
 # https://gohugo.io/content-management/menus/
@@ -28,7 +28,7 @@ copyright = "soracat" # Will be displayed on Footer.
 #footerText = "SampleText" # Any text you might want to display will go here.
 #logo = "/path/to/image" # Supports SVG.
 logoalt = "icon" # alt description of the logo.
-#postCSS = true # For postCSS support.
+postCSS = true # For postCSS support.
 
 [author]
 name = "soracat" # Name of the author.
