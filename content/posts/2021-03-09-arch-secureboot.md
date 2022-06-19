@@ -26,8 +26,6 @@ sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label "Shim" -
 
 あとはBOOTX64.efiを起動してgrubx64.efiのhashを登録する
 
-https://wiki.archlinux.jp/index.php/%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%96%E3%83%BC%E3%83%88
-
 # systemd-bootの場合
 
 /bootをefiパーティションとして使っている場合,主にsystemd-boot

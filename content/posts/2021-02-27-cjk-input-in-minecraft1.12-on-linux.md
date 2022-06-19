@@ -7,15 +7,11 @@ tags = ["minecraft", "linux"]
 
 まずはforgeを導入
 
-```url
 http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.12.2.html
-```
 
 forgeを導入する方法は他サイトを見てください
 
-```url
 https://github.com/Yesterday17/KokoaLinux/releases
-```
 
 ここから.jarをダウンロードし、modsフォルダに入れる
 

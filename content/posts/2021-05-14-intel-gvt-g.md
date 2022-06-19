@@ -5,13 +5,13 @@ author = "soracqt"
 tags = ["intel", "linux", "qemu", "pci-passthrough"]
 +++
 
-## 前提条件
+# 前提条件
 
 linux >= 4.16
 
 qemu >= 2.12
 
-## 設定
+# 設定
 
 `/etc/modprobe.d/i915.conf`
 
@@ -62,7 +62,7 @@ qemu-system-x86_64 \
   -device vfio-pci,sysfsdev=/sys/bus/mdev/devices/$GVT_GUID
 ```
 
- # 参考
+# 参考
 
 https://kagasu.hatenablog.com/entry/2021/01/05/201126
 

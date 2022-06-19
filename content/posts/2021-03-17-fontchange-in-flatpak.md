@@ -5,7 +5,7 @@ author = "soracqt"
 tags = ["flatpak", "linux", "fontconfig"]
 +++
 
-fontconfig(https://wiki.archlinux.org/index.php/Font_configuration)の設定ファイルをコピーするだけです
+[fontconfig](https://wiki.archlinux.org/index.php/Font_configuration)の設定ファイルをコピーするだけです
 
 ```bash
 ~/.var/app/${Application ID}/config/fontconfig/ # ~/.var/app/us.zoom.Zoom/config/fontconfig/
