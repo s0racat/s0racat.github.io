@@ -10,4 +10,4 @@ draft: true
 
 ### Scrapbox
 
-[Scrapbox](scrapbox.io/soracqt)
+[Scrapbox](https://scrapbox.io/soracqt)
