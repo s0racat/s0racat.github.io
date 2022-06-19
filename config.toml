@@ -8,7 +8,7 @@ sectionPagesMenu = "main" # Enables automatic navigation bar.
 #[build]
 #writeStats = true # Needed for PostCSS
 
-#[menu]
+[menu]
 # https://gohugo.io/content-management/menus/
 #[[menu.main]]
 #identifier = "About"
