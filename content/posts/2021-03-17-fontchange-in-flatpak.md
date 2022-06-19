@@ -15,4 +15,6 @@ Application IDは`flatpak list`で確認できます
 
 私はnoto-fonts-cjkの設定ファイルをコピーしてみました
 
-archlinuxの場合は`/usr/share/fontconfig/conf.avail/70-noto-cjk.conf`にあります
+Symlinkするべきかも
+
+archlinux,font: noto-fonts-cjkの場合は`/usr/share/fontconfig/conf.avail/70-noto-cjk.conf`にあります

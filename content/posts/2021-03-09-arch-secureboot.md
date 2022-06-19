@@ -30,7 +30,7 @@ https://wiki.archlinux.jp/index.php/%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%9
 
 # systemd-bootの場合
 
-/bootがfat32になっている場合です
+/bootをefiパーティションとして使っている場合,主にsystemd-boot
 
 ```bash
 yay -S preloader-signed
