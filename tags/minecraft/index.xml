@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>minecraft on 忘れないように... 2</title><link>https://soracqt.github.io/tags/minecraft/</link><description>Recent content in minecraft on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Sat, 27 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://soracqt.github.io/tags/minecraft/index.xml" rel="self" type="application/rss+xml"/><item><title>LinuxのMinecraft 1.12.xで日本語入力</title><link>https://soracqt.github.io/posts/2021-02-27-cjk-input-in-minecraft1.12-on-linux/</link><pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-02-27-cjk-input-in-minecraft1.12-on-linux/</guid><description>まずはforgeを導入
-http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.12.2.html forgeを導入する方法は他サイトを見てください
-https://github.com/Yesterday17/KokoaLinux/releases ここから.jarをダウンロードし、modsフォルダに入れる
+http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.12.2.html
+forgeを導入する方法は他サイトを見てください
+https://github.com/Yesterday17/KokoaLinux/releases
+ここから.jarをダウンロードし、modsフォルダに入れる
 sourcesじゃない方をダウンロードする
 環境はfcitx5-mozcです
 作者さんのbilibiliです

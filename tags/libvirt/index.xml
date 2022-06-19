@@ -4,6 +4,6 @@ sudo pacman -S edk2-ovmf ウオー
 手軽、すばらしいarchlinux</description></item><item><title>libvirtdのエラー解決方法メモ</title><link>https://soracqt.github.io/posts/2021-04-15-libvirt-err-truble/</link><pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-04-15-libvirt-err-truble/</guid><description>Internal error:Failed to initialize a valid firewall backend
 というエラーで仮想NATが起動しませんでした
 前まではebtablesを入れることで治りましたが
-最近公式リポジトリからebtablesが消滅したのでiptables-nftを入れてください
+最近公式リポジトリからebtablesが消滅したのでiptables+nftを入れてください
 sudo pacman -S --needed iptables-nft dnsmasq libvirtdを再起動してください
 sudo systemctl restart libvirtd https://superuser.com/questions/1063240/libvirt-failed-to-initialize-a-valid-firewall-backend</description></item></channel></rss>
