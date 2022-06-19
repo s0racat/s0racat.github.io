@@ -26,8 +26,8 @@ weight = 10
 dateFormat = "2006/01/02" # How the date will be displayed on posts.
 copyright = "soracat" # Will be displayed on Footer.
 #footerText = "SampleText" # Any text you might want to display will go here.
-#logo = "/path/to/image" # Supports SVG.
-logoalt = "icon" # alt description of the logo.
+logo = "/img/icon.jpg"
+logoalt = "icon by Neko" # alt description of the logo.
 #postCSS = true # For postCSS support.
 
 [author]
