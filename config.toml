@@ -3,19 +3,12 @@ languageCode = "ja-jp" # Language will defined on meta.
 relativeURLs = true
 title = "忘れないように... 2"
 theme = "SimpleTheme"
-sectionPagesMenu = "main" # Enables automatic navigation bar.
 
 [build]
 writeStats = true # Needed for PostCSS
 
 [menu]
 # https://gohugo.io/content-management/menus/
-[[menu.main]]
-identifier = "Posts"
-name = "Posts"
-url = "/posts/"
-weight = 10
-
 
 [[menu.main]]
 homepage = "Tags"
