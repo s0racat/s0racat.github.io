@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>wayland on 忘れないように... 2</title><link>https://soracqt.github.io/tags/wayland/</link><description>Recent content in wayland on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Thu, 20 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://soracqt.github.io/tags/wayland/index.xml" rel="self" type="application/rss+xml"/><item><title>swayについて</title><link>https://soracqt.github.io/posts/2021-05-20-sway/</link><pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-05-20-sway/</guid><description>Swayとはwaylandのタイリングウィンドウマネージャです
+waylandの場合~/.xprofileは読み込まれません
+lightdmを使うと読み込まれます
+waylandで変数定義するには~/.pam_environmentを使ってください
+必要なパッケージ(archlinux)は sway, xorg-xwayland, swayidle, swaylock(locker), grim, mako, gammastepです
+設定は~/.config/sway/configです
+i3wmのconfigをコピーしてエラーログ見ながら修正すると楽です
+サンプル設定はarchlinuxの場合/etc/sway/configにありますコピーして使ってください
+ブラウザはchromiumは推奨されませんfirefoxを使いましょう
+i3wm(X11)からソフトウェアの代替 🔗 https://github.com/swaywm/sway/wiki/i3-Migration-Guide
+に書いてますが実際移行したものを書いていきます
+light(i3wm) → light(sway) lightくんX11でもwaylandでもバックライト調整できます万能です !
+xfce4-notifyd(i3wm) → mako
+feh(i3wm) → sway-output
+flameshot → flameshot
+sway/config
+output * bg ~/Pictures/wallpaper.jpg fill ~/Pictures/wallpaper.jpgに壁紙に設定したい画像があると仮定してます
+適当にファイルのパスを書き換えてください
+設定に書くと壁紙が設定できます
+picom / compton / xcompmgr → 入れる必要なし(Sway自体がコンポジタ)
+rofi(i3wm) → wofi(sway)
+sway/config
+set $menu &amp;#34;wofi --show drun --allow-images&amp;#34; デフォルトでdmenuが使われてます
+rofi likeなランチャーが使いたいならset $menu &amp;hellip;の部分を変更してください
+redshift(i3wm) → gammastep, wlsunset, redshift-wayland 私はgammastepを使いました サンプル設定(https://gitlab.</description></item></channel></rss>

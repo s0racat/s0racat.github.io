@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>veracrypt on 忘れないように... 2</title><link>https://soracqt.github.io/tags/veracrypt/</link><description>Recent content in veracrypt on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Sun, 12 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://soracqt.github.io/tags/veracrypt/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows 10 homeでCドライブを暗号化</title><link>https://soracqt.github.io/posts/2021-09-12-encrypt-windows-with-veracrypt/</link><pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-09-12-encrypt-windows-with-veracrypt/</guid><description>Windows 10 proはbitlockerを使ってCドライブを暗号化できるのですが、Windows 10 homeはできません
+なのでVeraCryptを使ってCドライブを暗号化する方法を書きます。bitlockerを使いたくない人にも良いかもしれません
+インストール 🔗 なんらかの方法でVeraCryptを使える状態にします
+構成 🔗 ここをクリック
+シングルブートかマルチブートか</description></item></channel></rss>
