@@ -10,3 +10,7 @@ date: 2022-06-17T08:19:43+09:00
 ### Scrapbox
 
 [Scrapbox](https://scrapbox.io/soracqt)
+
+### RSS
+
+[index.xml](index.xml/)
