@@ -3,13 +3,13 @@ $mod(prefixキー)+Enterでターミナルが起動, $mod+Shift+qでソフト終
 これはデフォルトですがカスタムキーバインドが自由に設定できます
 他のタイリングウィンドウマネージャと違うのはフローティングウィンドウができます
 フローティングウィンドウにするには$mod+Shift+spaceでできます
-r/unixp*rnでおしゃれなデスクトップが上がってたので興味湧いて使っていましたが他フローティングウィンドウマネージャが触るのがめんどくさくなりました
+r/unixp*rnでおしゃれなデスクトップが上がってたので興味湧いて使っていましたがgnome,xfce etc.が触るのがめんどくさくなりました
 キーボードで操作できるのがいいですね。ノートパソコンに向いてると思います
 i3-gapsのはなし 🔗 i3-gapsというforkがあります
 Window間の幅が空けられます
 幅が開けられて見やすいのでこれがおすすめです
 私はこれを使ってます
-ArchLinuxならビルドぜずcommunityから入ります！(笑)
+ArchLinuxならビルドぜずcommunityから入ります！
 debianならRegolith PPAから入ります
 sudo add-apt-repository ppa:regolith-linux/release おすすめパッケージ 🔗 alacritty: ターミナル, 設定ファイルがyml kitty: ターミナル feh: 壁紙設定 nitrogen: 壁紙設定 flameshot: スクリーンショット scrot: コマンドラインからスクリーンショット, シンプル gammastep: 画面を暖色にして目に優しく, waylandでも使える redshift:画面を暖色にして目に優しく, X11のみ使える gpicview: 画像ビューア gvfs-mtp: mtpデバイスをファイルマネージャーで操作, Androidなど thunar, pcmanfm, nemo: ファイルマネージャー i3lock: i3wmのためのロック画面 betterlockscreen: i3lockよりきれいなロック画面, aurにある i3status: アプレットなどを表示するバー kvantum-qt5: qt5のテーマ群, adaptaなどに似たテーマが入っていた qt5ct: qt5のテーマ設定 QT_QPA_PLATFORMTHEME変数をqt5ctに設定する必要がある
 ~/.xprofileなどに追記

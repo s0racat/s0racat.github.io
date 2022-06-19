@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 忘れないように... 2</title><link>https://soracqt.github.io/posts/</link><description>Recent content in Posts on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Sun, 12 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://soracqt.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows 10 homeでCドライブを暗号化</title><link>https://soracqt.github.io/posts/2021-09-12-encrypt-windows-with-veracrypt/</link><pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-09-12-encrypt-windows-with-veracrypt/</guid><description>Windows 10 proはbitlockerを使ってCドライブを暗号化できるのですが、Windows 10 homeはできません
 なのでVeraCryptを使ってCドライブを暗号化する方法を書きます。bitlockerを使いたくない人にも良いかもしれません
 インストール 🔗 なんらかの方法でVeraCryptを使える状態にします
+Portable版ではsystem disk暗号化機能が使えません
 構成 🔗 ここをクリック
-シングルブートかマルチブートか</description></item><item><title>virt-managerで(u)efi bootしたい</title><link>https://soracqt.github.io/posts/2021-07-19-virt-manager-efi/</link><pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-07-19-virt-manager-efi/</guid><description>edk2-ovmf をいれます
+シングルブートかマルチブートか 🔗 初心者にはmulti-boot configurationはよくないよ 🔗 続けますか？
+暗号化オプション 🔗 パスワード 🔗 短かいパスワード警告 🔗 20字以上のパスワードをおすすめするよ
+それでも続けますか？
+ランダムデータ収集 🔗 バーがフルになるまでやった
+レスキューディスク 🔗 Skip Rescue Disk verificationにチェックすると物理メディアを作成しなくて済む
+前にレスキューディスクを作成していたとしても前のレスキューディスクは使えないよ 🔗 何回データ上書きするか 🔗 なんとなく3passにした
+1回くらいはするべきでは、と思う
+正常にアンロックできるかテスト 🔗 暗号化中&amp;hellip; 🔗 終了 🔗</description></item><item><title>virt-managerで(u)efi bootしたい</title><link>https://soracqt.github.io/posts/2021-07-19-virt-manager-efi/</link><pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-07-19-virt-manager-efi/</guid><description>edk2-ovmf をいれます
 それだけです
 sudo pacman -S edk2-ovmf ウオー
 手軽、すばらしいarchlinux</description></item><item><title>i3wmについて</title><link>https://soracqt.github.io/posts/2021-05-26-i3wm/</link><pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-05-26-i3wm/</guid><description>i3wmとはタイリングウィンドウマネージャの一種です
@@ -10,41 +18,27 @@ $mod(prefixキー)+Enterでターミナルが起動, $mod+Shift+qでソフト終
 これはデフォルトですがカスタムキーバインドが自由に設定できます
 他のタイリングウィンドウマネージャと違うのはフローティングウィンドウができます
 フローティングウィンドウにするには$mod+Shift+spaceでできます
-r/unixp*rnでおしゃれなデスクトップが上がってたので興味湧いて使っていましたが他フローティングウィンドウマネージャが触るのがめんどくさくなりました
+r/unixp*rnでおしゃれなデスクトップが上がってたので興味湧いて使っていましたがgnome,xfce etc.が触るのがめんどくさくなりました
 キーボードで操作できるのがいいですね。ノートパソコンに向いてると思います
 i3-gapsのはなし 🔗 i3-gapsというforkがあります
 Window間の幅が空けられます
 幅が開けられて見やすいのでこれがおすすめです
 私はこれを使ってます
-ArchLinuxならビルドぜずcommunityから入ります！(笑)
+ArchLinuxならビルドぜずcommunityから入ります！
 debianならRegolith PPAから入ります
 sudo add-apt-repository ppa:regolith-linux/release おすすめパッケージ 🔗 alacritty: ターミナル, 設定ファイルがyml kitty: ターミナル feh: 壁紙設定 nitrogen: 壁紙設定 flameshot: スクリーンショット scrot: コマンドラインからスクリーンショット, シンプル gammastep: 画面を暖色にして目に優しく, waylandでも使える redshift:画面を暖色にして目に優しく, X11のみ使える gpicview: 画像ビューア gvfs-mtp: mtpデバイスをファイルマネージャーで操作, Androidなど thunar, pcmanfm, nemo: ファイルマネージャー i3lock: i3wmのためのロック画面 betterlockscreen: i3lockよりきれいなロック画面, aurにある i3status: アプレットなどを表示するバー kvantum-qt5: qt5のテーマ群, adaptaなどに似たテーマが入っていた qt5ct: qt5のテーマ設定 QT_QPA_PLATFORMTHEME変数をqt5ctに設定する必要がある
 ~/.xprofileなどに追記
-export QT_QPA_PLATFORMTHEME=qt5ct lxappearance: gtkの設定 parcellite: クリップボードマネージャー pavucontrol: pulseaudioをguiで調整 picom: コンポジター, ウィンドウ透過が設定できる, これ動かさないと画面がまともに動かないので推奨 rofi: dmenuの替え, テーマが豊富なのでカスタマイズがやりやすい rofimoji: rofiで絵文字が打てます, 絵文字フォントが必要だと思われる xfce4-notifyd: xfce4通知デーモン, これがgtkの設定尊重してくれてきれい dunst: 通知デーモン, こっちのほうがシンプルかも xss-lock: 画面の電源が切れた際とsuspendした際にロックしてくれる light: バックライト調整 playerctl: 音楽コントロール 設定 🔗 ユーザーの設定は~/.</description></item><item><title>swayについて</title><link>https://soracqt.github.io/posts/2021-05-20-sway/</link><pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-05-20-sway/</guid><description>Swayとはwaylandのタイリングウィンドウマネージャです
-waylandの場合~/.xprofileは読み込まれません
-lightdmを使うと読み込まれます
-waylandで変数定義するには~/.pam_environmentを使ってください
-必要なパッケージ(archlinux)は sway, xorg-xwayland, swayidle, swaylock(locker), grim, mako, gammastepです
-設定は~/.config/sway/configです
-i3wmのconfigをコピーしてエラーログ見ながら修正すると楽です
-サンプル設定はarchlinuxの場合/etc/sway/configにありますコピーして使ってください
-ブラウザはchromiumは推奨されませんfirefoxを使いましょう
-i3wm(X11)からソフトウェアの代替 🔗 https://github.com/swaywm/sway/wiki/i3-Migration-Guide
-に書いてますが実際移行したものを書いていきます
-light(i3wm) → light(sway) lightくんX11でもwaylandでもバックライト調整できます万能です !
-xfce4-notifyd(i3wm) → mako
-feh(i3wm) → sway-output
-flameshot → flameshot
-sway/config
-output * bg ~/Pictures/wallpaper.jpg fill ~/Pictures/wallpaper.jpgに壁紙に設定したい画像があると仮定してます
-適当にファイルのパスを書き換えてください
-設定に書くと壁紙が設定できます
-picom / compton / xcompmgr → 入れる必要なし(Sway自体がコンポジタ)
-rofi(i3wm) → wofi(sway)
-sway/config
-set $menu &amp;#34;wofi --show drun --allow-images&amp;#34; デフォルトでdmenuが使われてます
-rofi likeなランチャーが使いたいならset $menu &amp;hellip;の部分を変更してください
-redshift(i3wm) → gammastep, wlsunset, redshift-wayland 私はgammastepを使いました サンプル設定(https://gitlab.</description></item><item><title>Intel GVT-g</title><link>https://soracqt.github.io/posts/2021-05-14-intel-gvt-g/</link><pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-05-14-intel-gvt-g/</guid><description>前提条件 🔗 linux &amp;gt;= 4.16
+export QT_QPA_PLATFORMTHEME=qt5ct lxappearance: gtkの設定 parcellite: クリップボードマネージャー pavucontrol: pulseaudioをguiで調整 picom: コンポジター, ウィンドウ透過が設定できる, これ動かさないと画面がまともに動かないので推奨 rofi: dmenuの替え, テーマが豊富なのでカスタマイズがやりやすい rofimoji: rofiで絵文字が打てます, 絵文字フォントが必要だと思われる xfce4-notifyd: xfce4通知デーモン, これがgtkの設定尊重してくれてきれい dunst: 通知デーモン, こっちのほうがシンプルかも xss-lock: 画面の電源が切れた際とsuspendした際にロックしてくれる light: バックライト調整 playerctl: 音楽コントロール 設定 🔗 ユーザーの設定は~/.</description></item><item><title>sway Tips &amp; トラブルシューティング</title><link>https://soracqt.github.io/posts/2021-05-20-sway/</link><pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-05-20-sway/</guid><description>誰かがswayの記事を書いてくれてるのでトラブルシューティングを中心に書きます。
+swaywm site:qiita.comかswaywm site:zenn.devで出ます
+他にもarchwikiで検索、gentoo wikiで検索すると情報が出てきます
+Tips 🔗 サスペンドした際にロック 🔗 sway/config
+exec swayidle before-sleep &amp;#39;swaylock -f -c 000000; swaymsg &amp;#34;output * dpms off&amp;#34;&amp;#39; after-resume &amp;#39;swaymsg &amp;#34;output * dpms on&amp;#34;&amp;#39; この例はswaylockを使ってますがお好みのスクリーンセーバーを使ってください
+モニターの電源(dpms)も切ってくれます
+マシンに触らなかった場合自動でロック 🔗 sway/config
+exec swayidle -w \ timeout 300 &amp;#39;swaylock -f -c 000000&amp;#39; \ timeout 600 &amp;#39;swaymsg &amp;#34;output * dpms off&amp;#34;&amp;#39; resume &amp;#39;swaymsg &amp;#34;output * dpms on&amp;#34;&amp;#39; この場合5分でロックされ、その後10分後dpmsがオフになります
+firefoxを動かす 🔗 MOZ_ENABLE_WAYLAND=1 firefox で起動しますが
+~/.pam_environmentに書いて永続化します
+echo MOZ_ENABLE_WAYLAND=1 &amp;gt;&amp;gt; ~/.pam_environment トラブルシューティング 🔗 xdg-desktop-portal-gtkの起動が失敗する 🔗 https://github.</description></item><item><title>Intel GVT-g</title><link>https://soracqt.github.io/posts/2021-05-14-intel-gvt-g/</link><pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-05-14-intel-gvt-g/</guid><description>前提条件 🔗 linux &amp;gt;= 4.16
 qemu &amp;gt;= 2.12
 設定 🔗 /etc/modprobe.d/i915.conf
 options i915 ... enable_gvt=1 enable_guc=0 ... /etc/modules-load.d/intel_gvt-g.conf
@@ -61,10 +55,11 @@ sudo pacman -S --needed iptables-nft dnsmasq libvirtdを再起動してくださ
 sudo systemctl restart libvirtd https://superuser.com/questions/1063240/libvirt-failed-to-initialize-a-valid-firewall-backend</description></item><item><title>Flatpakアプリケーションでのフォント変更方法</title><link>https://soracqt.github.io/posts/2021-03-17-fontchange-in-flatpak/</link><pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-03-17-fontchange-in-flatpak/</guid><description>fontconfig(https://wiki.archlinux.org/index.php/Font_configuration)の設定ファイルをコピーするだけです
 ~/.var/app/${Application ID}/config/fontconfig/ # ~/.var/app/us.zoom.Zoom/config/fontconfig/ Application IDはflatpak listで確認できます
 私はnoto-fonts-cjkの設定ファイルをコピーしてみました
-archlinuxの場合は/usr/share/fontconfig/conf.avail/70-noto-cjk.confにあります</description></item><item><title>archlinuxでセキュアブート(簡易版)</title><link>https://soracqt.github.io/posts/2021-03-09-arch-secureboot/</link><pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-03-09-arch-secureboot/</guid><description>grubの場合 🔗 bootパーティションが/bootにマウントされていてefiパーティションが/boot/efiにマウントされている例です
+Symlinkするべきかも
+archlinux,font: noto-fonts-cjkの場合は/usr/share/fontconfig/conf.avail/70-noto-cjk.confにあります</description></item><item><title>archlinuxでセキュアブート(簡易版)</title><link>https://soracqt.github.io/posts/2021-03-09-arch-secureboot/</link><pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-03-09-arch-secureboot/</guid><description>grubの場合 🔗 bootパーティションが/bootにマウントされていてefiパーティションが/boot/efiにマウントされている例です
 yay -S shim-signed sudo cp /usr/share/shim-signed/shimx64.efi /boot/efi/EFI/arch/BOOTX64.efi sudo cp /usr/share/shim-signed/mmx64.efi /boot/efi/EFI/arch/ cd ~ sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label &amp;#34;Shim&amp;#34; --loader /EFI/arch/BOOTX64.efi あとはBOOTX64.efiを起動してgrubx64.efiのhashを登録する
 https://wiki.archlinux.jp/index.php/%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%96%E3%83%BC%E3%83%88
-systemd-bootの場合 🔗 /bootがfat32になっている場合です
+systemd-bootの場合 🔗 /bootをefiパーティションとして使っている場合,主にsystemd-boot
 yay -S preloader-signed sudo cp /usr/share/preloader-signed/{PreLoader,HashTool}.efi /boot/EFI/systemd sudo mv /boot/EFI/systemd/systemd-bootx64.efi /boot/EFI/systemd/loader.efi cd ~ sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label &amp;#34;PreLoader&amp;#34; --loader /EFI/systemd/PreLoader.efi どちらもカーネルとefiバイナリのhashを登録しないと起動しません
 ここでハマりました
 https://wiki.archlinux.jp/index.php/%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%96%E3%83%BC%E3%83%88</description></item><item><title>LinuxのMinecraft 1.12.xで日本語入力</title><link>https://soracqt.github.io/posts/2021-02-27-cjk-input-in-minecraft1.12-on-linux/</link><pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-02-27-cjk-input-in-minecraft1.12-on-linux/</guid><description>まずはforgeを導入
