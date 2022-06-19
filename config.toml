@@ -11,6 +11,12 @@ writeStats = true # Needed for PostCSS
 # https://gohugo.io/content-management/menus/
 
 [[menu.main]]
+homepage = "Posts"
+name = "Posts"
+url = "/posts/"
+weight = 10
+
+[[menu.main]]
 homepage = "Tags"
 name = "Tags"
 url = "/tags/"
