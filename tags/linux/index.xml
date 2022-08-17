@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on 忘れないように... 2</title><link>https://soracqt.github.io/tags/linux/</link><description>Recent content in linux on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Wed, 26 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://soracqt.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>i3wmについて</title><link>https://soracqt.github.io/posts/2021-05-26-i3wm/</link><pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-05-26-i3wm/</guid><description>概要 🔗 i3wmとはタイリングウィンドウマネージャの一種です
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on 忘れないように... 2</title><link>https://soracqt.github.io/tags/linux/</link><description>Recent content in linux on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Wed, 17 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://soracqt.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux環境でのパフォーマンス向上と省電力化、発熱防止</title><link>https://soracqt.github.io/posts/2022-08-17-linux-performance-and-powersave/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2022-08-17-linux-performance-and-powersave/</guid><description>- Thermald 🔗 Intel製のやつ
+CPUの周波数はコントロールしてくれない
+正直効果はあまり&amp;hellip;な気がする
+デフォルトでは、利用可能なCPUデジタル温度センサーを使用してCPU温度を監視し、ハードウェアが積極的な修正アクションを取る前に、CPU温度を制御下に維持します。thermal sysfsに皮膚温度センサーがある場合、皮膚温度を45℃以下に維持しようとします。
+引用: archwikiより
+- cpupower 🔗 論理的にCPU周波数コントロールができる
+これは効果がわかりやすいと思う
+例えば/etc/default/cpupowerに
+min_freq=&amp;#34;800MHz&amp;#34; max_freq=&amp;#34;1.8GHz&amp;#34; と書いてcpupowerのデーモンを有効化しておくと最小周波数を800MHz、最大周波数を1.8GHzに固定してくれる
+- TLP 🔗 言わずと知れた省電力化デーモン
+ラップトップの場合、。バッテリーが充電状態かしていないかで良い感じ切り替えをやってくれる
+powertopでどの項目を省電力化したのかが見れる
+- ananicy-cpp 🔗 元のAnanicyをC++で書き直した物
+プロセスの優先度をいじってるらしいです。
+I just wanted a tool for auto set programs nice in my system, i.e.:
+Why do I get lag, while compiling kernel and playing games? Why does dropbox client eat all my IO? Why does torrent/dc client make my laptop run slower?</description></item><item><title>i3wmについて</title><link>https://soracqt.github.io/posts/2021-05-26-i3wm/</link><pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-05-26-i3wm/</guid><description>概要 🔗 i3wmとはタイリングウィンドウマネージャの一種です
 $mod(prefixキー)+Enterでターミナルが起動, $mod+Shift+qでソフト終了, $mod+Shift+rでi3wmを再起動などできます
 これはデフォルトですがカスタムキーバインドが自由に設定できます
 他のタイリングウィンドウマネージャと違うのはフローティングウィンドウができます
