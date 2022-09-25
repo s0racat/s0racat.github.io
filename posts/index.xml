@@ -25,7 +25,7 @@ Portable版ではsystem disk暗号化機能が使えません
 レスキューディスク 🔗 Skip Rescue Disk verificationにチェックすると物理メディアを作成しなくて済む
 前にレスキューディスクを作成していたとしても前のレスキューディスクは使えないよ 🔗 何回データ上書きするか 🔗 なんとなく3passにした
 1回くらいはするべきでは、と思う
-正常にアンロックできるかテスト 🔗 暗号化中&amp;hellip; 🔗 終了 🔗</description></item><item><title>virt-managerで(u)efi bootしたい</title><link>https://soracqt.github.io/posts/2021-07-19-virt-manager-efi/</link><pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-07-19-virt-manager-efi/</guid><description>edk2-ovmf をいれます
+正常にアンロックできるかテスト 🔗 暗号化中&amp;hellip; 🔗 終了 🔗 おまけ 🔗 Linux側からVeracryptで暗号化されたドライブをマウント(scrapbox)</description></item><item><title>virt-managerで(u)efi bootしたい</title><link>https://soracqt.github.io/posts/2021-07-19-virt-manager-efi/</link><pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-07-19-virt-manager-efi/</guid><description>edk2-ovmf をいれます
 それだけです
 sudo pacman -S edk2-ovmf ウオー
 手軽、すばらしいarchlinux</description></item><item><title>i3wmについて</title><link>https://soracqt.github.io/posts/2021-05-26-i3wm/</link><pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate><guid>https://soracqt.github.io/posts/2021-05-26-i3wm/</guid><description>概要 🔗 i3wmとはタイリングウィンドウマネージャの一種です
