@@ -101,3 +101,7 @@ Skip Rescue Disk verificationにチェックすると物理メディアを作成
 ## 終了
 
 ![](/img/2021-09-12-encrypt-windows-with-veracrypt/screenshot_022.jpg)
+
+## おまけ
+
+[Linux側からVeracryptで暗号化されたドライブをマウント(scrapbox)](https://scrapbox.io/soracqt/cryptsetup%E3%81%A7veracrypt%E6%9A%97%E5%8F%B7%E5%8C%96%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E9%96%8B%E3%81%8F)
