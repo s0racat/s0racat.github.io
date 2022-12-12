@@ -5,9 +5,7 @@ author = "soracqt"
 tags = ["archlinux", "secureboot", "bootloader", "efi"]
 +++
 
-[2021-03-09-arch-secureboot](/posts/2021-03-09-arch-secureboot/)
-
-こっちが古くなってたので
+こっち([2021-03-09-arch-secureboot](/posts/2021-03-09-arch-secureboot/))が古くなってたので書きましたいちいちhashをenrollしなくてもいい版です。
 
 ## インストール
 
