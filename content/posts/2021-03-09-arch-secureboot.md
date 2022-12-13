@@ -20,8 +20,7 @@ sudo cp /usr/share/shim-signed/mmx64.efi /boot/efi/EFI/arch/
 ```
 
 ```bash
-cd ~
-sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label "Shim" --loader /EFI/arch/BOOTX64.efi
+sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label "Shim" --loader "\EFI\arch\BOOTX64.efi"
 ```
 
 あとはBOOTX64.efiを起動してgrubx64.efiのhashを登録する
@@ -41,7 +40,7 @@ sudo mv /boot/EFI/systemd/systemd-bootx64.efi /boot/EFI/systemd/loader.efi
 
 ```bash
 cd ~
-sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label "PreLoader" --loader /EFI/systemd/PreLoader.efi
+sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label "PreLoader" --loader "\EFI\systemd\PreLoader.efi"
 ```
 
 どちらもカーネルとefiバイナリのhashを登録しないと起動しません
