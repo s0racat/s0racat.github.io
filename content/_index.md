@@ -13,4 +13,4 @@ date: 2022-06-17T08:19:43+09:00
 
 ### RSS
 
-[index.xml](index.xml/)
+[index.xml](index.xml)
