@@ -69,6 +69,26 @@ mokutil --delete /var/lib/shim-signed/mok/MOK.cer
 
 https://wiki.archlinux.org/title/Secure_Boot#shim_with_key
 
+## 懸念と解決
+
+### grubからカーネルパラメーターを編集できてしまったら/bootへの書き込み権限が得られるのではないか(init=/bin/bashなど)
+
+root(/)を暗号化していても同じです(cryptdeviceパラメーター)。
+
+cryptdeviceパラメーターを消してinit=/bin/bashなどを付けると正常に起動できませんが暗号化されていないパーティションをマウントができてしまいます。
+
+なのでgrubにパスワードをかけましょう。
+
+https://wiki.archlinux.org/title/GRUB/Tips_and_tricks#Password_protection_of_GRUB_menu
+
+さらにカーネルパラメーターを編集する時以外はパスワードを要求しないようにもできます。
+
+https://wiki.archlinux.org/title/Talk:GRUB/Tips_and_tricks#Password_protection_of_non_local_system_boot_options
+
+### USBブートができてしまったらファイル書きかえできてしまう。
+
+UEFIで内蔵ディスク以外を起動不可に設定してBIOSパスワードをかけましょう。
+
 ## 参考
 
 https://wiki.archlinux.org/title/Secure_Boot#shim
