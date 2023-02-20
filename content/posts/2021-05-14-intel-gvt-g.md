@@ -1,7 +1,7 @@
 +++
 title = "Intel GVT-g"
 date = "2021-05-14"
-author = "soracqt"
+author = "soracat"
 tags = ["intel", "linux", "qemu", "pci-passthrough"]
 +++
 

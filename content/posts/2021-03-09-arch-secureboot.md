@@ -1,7 +1,7 @@
 +++
 title = "archlinuxでセキュアブート(簡易版)"
 date = "2021-03-09"
-author = "soracqt"
+author = "soracat"
 tags = ["archlinux", "secureboot", "bootloader", "efi"]
 +++
 

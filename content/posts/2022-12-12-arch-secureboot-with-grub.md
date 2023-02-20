@@ -1,7 +1,7 @@
 +++
 title = "archlinuxでセキュアブート with grub"
 date = "2022-12-12"
-author = "soracqt"
+author = "soracat"
 tags = ["archlinux", "secureboot", "bootloader", "efi"]
 +++
 

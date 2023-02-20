@@ -1,7 +1,7 @@
 +++
 title = "LinuxのMinecraft 1.12.xで日本語入力"
 date = "2021-02-27"
-author = "soracqt"
+author = "soracat"
 tags = ["minecraft", "linux"]
 +++
 

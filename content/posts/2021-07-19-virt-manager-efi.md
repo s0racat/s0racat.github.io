@@ -1,7 +1,7 @@
 +++
 title = "virt-managerで(u)efi bootしたい"
 date = "2021-07-19"
-author = "soracqt"
+author = "soracat"
 tags = ["virt-manager", "libvirt", "efi"]
 +++
 

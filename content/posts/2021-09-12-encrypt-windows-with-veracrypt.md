@@ -1,7 +1,7 @@
 +++
 title = "Windows 10 homeでCドライブを暗号化"
 date = "2021-09-12"
-author = "soracqt"
+author = "soracat"
 description = "画像多数注意"
 tags = ["security", "encrypt", "veracrypt", "windows"]
 +++
@@ -104,4 +104,4 @@ Skip Rescue Disk verificationにチェックすると物理メディアを作成
 
 ## おまけ
 
-[Linux側からVeracryptで暗号化されたドライブをマウント(scrapbox)](https://scrapbox.io/soracqt/cryptsetup%E3%81%A7veracrypt%E6%9A%97%E5%8F%B7%E5%8C%96%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E9%96%8B%E3%81%8F)
+[Linux側からVeracryptで暗号化されたドライブをマウント(scrapbox)](https://scrapbox.io/soracat/cryptsetup%E3%81%A7veracrypt%E6%9A%97%E5%8F%B7%E5%8C%96%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E9%96%8B%E3%81%8F)

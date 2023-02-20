@@ -1,4 +1,4 @@
-baseURL = "https://soracqt.github.io"
+baseURL = "https://s0racat.github.io"
 languageCode = "ja-jp" # Language will defined on meta.
 relativeURLs = true
 title = "忘れないように... 2"
@@ -32,7 +32,7 @@ logoalt = "icon by Neko" # alt description of the logo.
 
 [author]
 name = "soracat" # Name of the author.
-github = "soracqt" # https://github.com/example.
+github = "soracat" # https://github.com/example.
 
 [markup]
   [markup.highlight]

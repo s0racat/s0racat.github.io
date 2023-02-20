@@ -1,7 +1,7 @@
 +++
 title = "Linux環境でのパフォーマンス向上と省電力化、発熱防止"
 date = "2022-08-17"
-author = "soracqt"
+author = "soracat"
 tags = ["power-management", "linux"]
 +++
 

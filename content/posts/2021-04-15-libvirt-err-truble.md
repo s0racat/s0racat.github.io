@@ -1,7 +1,7 @@
 +++
 title = "libvirtdのエラー解決方法メモ"
 date = "2021-04-15"
-author = "soracqt"
+author = "soracat"
 tags = ["libvirt", "network", "memo", "linux"]
 +++
 
@@ -11,7 +11,7 @@ _Internal error:Failed to initialize a valid firewall backend_
 
 前までは`ebtables`を入れることで治りましたが
 
-最近公式リポジトリから`ebtables`が消滅したので`iptables+nft`を入れてください
+最近公式リポジトリから`ebtables`が消滅したので`iptables-nft`を入れてください
 
 ```bash
 sudo pacman -S --needed iptables-nft dnsmasq

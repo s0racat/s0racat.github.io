@@ -1,7 +1,7 @@
 +++
 title = "Flatpakアプリケーションでのフォント変更方法"
 date = "2021-03-17"
-author = "soracqt"
+author = "soracat"
 tags = ["flatpak", "linux", "fontconfig"]
 +++
 
