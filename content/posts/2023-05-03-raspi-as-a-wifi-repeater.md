@@ -78,7 +78,11 @@ sudo cp /etc/dnscrypt-proxy/dnscrypt-proxy.toml /etc/dnscrypt-proxy/dnscrypt-pro
 `/etc/dnscrypt-proxy/dnscrypt-proxy.toml`
 
 ```diff
+...
 +listen_addresses = ['127.0.0.1:50000']
+...
++cache = false
+...
 ```
 
 listen_addressのポートを50000番に変えてます。多分53ポートはバッティングすると思うので
@@ -123,7 +127,9 @@ sudo cp /etc/default/ufw /etc/default/ufw.bak
 `/etc/default/ufw`
 
 ```diff
+...
 +DEFAULT_FORWARD_POLICY=“ACCEPT"
+...
 ```
 
 ```bash
@@ -133,6 +139,7 @@ sudo cp /etc/ufw/before.rules /etc/ufw/before.rules.bak
 `/etc/ufw/before.rules`
 
 ```bash
+...
 *nat
 -F
 -A POSTROUTING -s 192.168.50.0/24 ! -d 192.168.50.0/24 -j MASQUERADE
