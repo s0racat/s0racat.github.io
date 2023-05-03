@@ -166,3 +166,13 @@ sudo ufw allow 67/udp
 ```bash
 sudo systemctl reboot
 ```
+
+# 参考元
+
+https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-routed-wireless-access-point
+
+https://docs.raspap.com/ap-sta/
+
+https://www.mikan-tech.net/entry/raspi-ap-sta-router
+
+https://qiita.com/hoto17296/items/3aa5863ba9ef13400283
