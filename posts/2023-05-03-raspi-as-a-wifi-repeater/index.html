@@ -21,18 +21,38 @@
 <a class=anchor href=#hostapd%e3%81%ae%e8%a8%ad%e5%ae%9a>🔗</a></h1><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo cp /etc/hostapd/hostapd.conf /etc/hostapd/hostapd.conf.bak
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#81a1c1>echo</span> <span style=color:#a3be8c>&#39;country_code=JP
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>
 </span></span></span><span style=display:flex><span><span style=color:#a3be8c>interface=uap0
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>driver=nl80211
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>
 </span></span></span><span style=display:flex><span><span style=color:#a3be8c>ssid=raspiap
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>hw_mode=g
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>channel=7
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>macaddr_acl=0
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>auth_algs=1
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># Whether to Broadcast ssid, 0 = off,1 = stealth ssid
 </span></span></span><span style=display:flex><span><span style=color:#a3be8c>ignore_broadcast_ssid=0
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>wpa=2
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>wpa_passphrase=passphrase
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>hw_mode=a
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>channel=36
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>ieee80211ac=1
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># MAC Address access control, 0 = off
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>macaddr_acl=0
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># WMM(Wi-Fi Multimedia)
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>wmm_enabled=1
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># https://en.wikipedia.org/wiki/IEEE_802.11d-2001
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>ieee80211d=1
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># https://en.wikipedia.org/wiki/IEEE_802.11h-2003
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>ieee80211h=1
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># https://qiita.com/JhonnyBravo/items/5df2d9b2fcb142b6a67c
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>local_pwr_constraint=3
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>spectrum_mgmt_required=1
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># Use WPA
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>auth_algs=1
 </span></span></span><span style=display:flex><span><span style=color:#a3be8c>wpa_key_mgmt=WPA-PSK
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>wpa_pairwise=TKIP
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>rsn_pairwise=CCMP&#39;</span> <span style=color:#eceff4>|</span> sudo tee /etc/hostapd/hostapd.conf
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># Use WPA2
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>wpa=2
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># Use CCMP
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>wpa_pairwise=CCMP
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># passphrase
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>wpa_passphrase=passphrase&#39;</span> <span style=color:#eceff4>|</span> sudo tee /etc/hostapd/hostapd.conf
 </span></span></code></pre></div><p>設定項目はあまり理解してませんが<code>wpa_passphrase</code>項目を変えると接続時に求められるパスワードを変更できます。</p><h1 id=dnscrypt-proxyの設定オプション>dnscrypt-proxyの設定(オプション)
 <a class=anchor href=#dnscrypt-proxy%e3%81%ae%e8%a8%ad%e5%ae%9a%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>🔗</a></h1><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo cp /etc/dnscrypt-proxy/dnscrypt-proxy.toml /etc/dnscrypt-proxy/dnscrypt-proxy.toml.bak
 </span></span></code></pre></div><p><code>/etc/dnscrypt-proxy/dnscrypt-proxy.toml</code></p><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-diff data-lang=diff><span style=display:flex><span>...
@@ -43,16 +63,33 @@
 </span></span></code></pre></div><p>listen_addressのポートを50000番に変えてます。多分53ポートはバッティングすると思うので</p><h1 id=dnsmasqの設定>dnsmasqの設定
 <a class=anchor href=#dnsmasq%e3%81%ae%e8%a8%ad%e5%ae%9a>🔗</a></h1><p>dnsmasqはdhcp serverとlocal dns cache serverとして動いてくれます。</p><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo cp /etc/dnsmasq.conf /etc/dnsmasq.conf.bak
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#81a1c1>echo</span> <span style=color:#a3be8c>&#39;interface=lo,uap0
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>bind-interfaces
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>domain-needed
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>bogus-priv
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>dhcp-range=192.168.50.2,192.168.50.20,255.255.255.0,12h
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>server=127.0.0.1#50000
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>no-resolv
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>listen-address=192.168.50.1
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>proxy-dnssec
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c>cache-size=1000&#39;</span> <span style=color:#eceff4>|</span> sudo tee /etc/dnsmasq.conf
+</span></span><span style=display:flex><span><span style=color:#81a1c1>echo</span> <span style=color:#a3be8c>&#39;# listen interface
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>interface=uap0
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># On systems which support it, dnsmasq binds the wildcard address,
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># even when it is listening on only some interfaces. It then discards
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># requests that it shouldn&#39;</span>t reply to. This has the advantage of
+</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># working even when interfaces come and go and change address. If you</span>
+</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># want dnsmasq to really bind only the interfaces it is listening on,</span>
+</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># uncomment this option. About the only time you may need this is when</span>
+</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># running another nameserver on the same machine.</span>
+</span></span><span style=display:flex><span>bind-interfaces
+</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># dhcp range 2~20, 12hrs to update dhcp lease</span>
+</span></span><span style=display:flex><span>dhcp-range<span style=color:#81a1c1>=</span>192.168.50.2,192.168.50.20,255.255.255.0,12h
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># Never forward plain names (without a dot or domain part)</span>
+</span></span><span style=display:flex><span>domain-needed
+</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># Never forward addresses in the non-routed address spaces.</span>
+</span></span><span style=display:flex><span>bogus-priv
+</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># upstream dns server</span>
+</span></span><span style=display:flex><span>server<span style=color:#81a1c1>=</span>127.0.0.1#50000
+</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># don&#39;t read /etc/resolv.conf</span>
+</span></span><span style=display:flex><span>no-resolv
+</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># listen for dns server on 192.168.50.1</span>
+</span></span><span style=display:flex><span>listen-address<span style=color:#81a1c1>=</span>192.168.50.1
+</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># dns cache size</span>
+</span></span><span style=display:flex><span>cache-size<span style=color:#81a1c1>=</span><span style=color:#b48ead>1000</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>conf-dir<span style=color:#81a1c1>=</span>/etc/dnsmasq.d/,*.conf<span style=color:#bf616a>&#39;</span> <span style=color:#eceff4>|</span> sudo tee /etc/dnsmasq.conf
 </span></span></code></pre></div><p><code>server</code>オプションは上流DNSキャッシュサーバーを指定できます。</p><p>この例ではさっきセットアップしたdnscrypt-proxyのアドレスとポートを指定しています。</p><h1 id=ipマスカレードを有効化>IPマスカレードを有効化
 <a class=anchor href=#ip%e3%83%9e%e3%82%b9%e3%82%ab%e3%83%ac%e3%83%bc%e3%83%89%e3%82%92%e6%9c%89%e5%8a%b9%e5%8c%96>🔗</a></h1><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#81a1c1>echo</span> <span style=color:#a3be8c>&#39;net.ipv4.ip_forward=1&#39;</span> <span style=color:#eceff4>|</span> sudo tee /etc/sysctl.d/routed-ap.conf
 </span></span></code></pre></div><h2 id=ufw>ufw
@@ -79,4 +116,4 @@
 </span></span></code></pre></div><h1 id=再起動>再起動
 <a class=anchor href=#%e5%86%8d%e8%b5%b7%e5%8b%95>🔗</a></h1><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo systemctl reboot
 </span></span></code></pre></div><h1 id=参考元>参考元
-<a class=anchor href=#%e5%8f%82%e8%80%83%e5%85%83>🔗</a></h1><p><a href=https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-routed-wireless-access-point>https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-routed-wireless-access-point</a></p><p><a href=https://docs.raspap.com/ap-sta/>https://docs.raspap.com/ap-sta/</a></p><p><a href=https://www.mikan-tech.net/entry/raspi-ap-sta-router>https://www.mikan-tech.net/entry/raspi-ap-sta-router</a></p><p><a href=https://qiita.com/hoto17296/items/3aa5863ba9ef13400283>https://qiita.com/hoto17296/items/3aa5863ba9ef13400283</a></p></div></article></main><div class=article-related><p>Previous: <a href=https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/>archlinuxでセキュアブート with grub</a></p></div><div class=article-license></div><footer><p>© 2023 - soracat</footer></body></html>
+<a class=anchor href=#%e5%8f%82%e8%80%83%e5%85%83>🔗</a></h1><p><a href=https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-routed-wireless-access-point>https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-routed-wireless-access-point</a></p><p><a href=https://docs.raspap.com/ap-sta/>https://docs.raspap.com/ap-sta/</a></p><p><a href=https://www.mikan-tech.net/entry/raspi-ap-sta-router>https://www.mikan-tech.net/entry/raspi-ap-sta-router</a></p><p><a href=https://qiita.com/hoto17296/items/3aa5863ba9ef13400283>https://qiita.com/hoto17296/items/3aa5863ba9ef13400283</a></p><p><a href=https://www.itmedia.co.jp/news/spv/2008/14/news042.html>https://www.itmedia.co.jp/news/spv/2008/14/news042.html</a></p><p><a href=https://github.com/imp/dnsmasq/blob/master/dnsmasq.conf.example>https://github.com/imp/dnsmasq/blob/master/dnsmasq.conf.example</a></p></div></article></main><div class=article-related><p>Previous: <a href=https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/>archlinuxでセキュアブート with grub</a></p></div><div class=article-license></div><footer><p>© 2023 - soracat</footer></body></html>
