@@ -53,18 +53,38 @@ Address=192.168.50.1/24' | sudo tee /etc/systemd/network/80-wifi-ap.network
 sudo cp /etc/hostapd/hostapd.conf /etc/hostapd/hostapd.conf.bak
 
 echo 'country_code=JP
+
 interface=uap0
+driver=nl80211
+
 ssid=raspiap
-hw_mode=g
-channel=7
-macaddr_acl=0
-auth_algs=1
+# Whether to Broadcast ssid, 0 = off,1 = stealth ssid
 ignore_broadcast_ssid=0
-wpa=2
-wpa_passphrase=passphrase
+hw_mode=a
+channel=36
+ieee80211ac=1
+# MAC Address access control, 0 = off
+macaddr_acl=0
+# WMM(Wi-Fi Multimedia)
+wmm_enabled=1
+
+# https://en.wikipedia.org/wiki/IEEE_802.11d-2001
+ieee80211d=1
+# https://en.wikipedia.org/wiki/IEEE_802.11h-2003
+ieee80211h=1
+# https://qiita.com/JhonnyBravo/items/5df2d9b2fcb142b6a67c
+local_pwr_constraint=3
+spectrum_mgmt_required=1
+
+# Use WPA
+auth_algs=1
 wpa_key_mgmt=WPA-PSK
-wpa_pairwise=TKIP
-rsn_pairwise=CCMP' | sudo tee /etc/hostapd/hostapd.conf
+# Use WPA2
+wpa=2
+# Use CCMP
+wpa_pairwise=CCMP
+# passphrase
+wpa_passphrase=passphrase' | sudo tee /etc/hostapd/hostapd.conf
 ```
 
 設定項目はあまり理解してませんが`wpa_passphrase`項目を変えると接続時に求められるパスワードを変更できます。
@@ -94,16 +114,33 @@ dnsmasqはdhcp serverとlocal dns cache serverとして動いてくれます。
 ```bash
 sudo cp /etc/dnsmasq.conf /etc/dnsmasq.conf.bak
 
-echo 'interface=lo,uap0
+echo '# listen interface
+interface=uap0
+# On systems which support it, dnsmasq binds the wildcard address,
+# even when it is listening on only some interfaces. It then discards
+# requests that it shouldn't reply to. This has the advantage of
+# working even when interfaces come and go and change address. If you
+# want dnsmasq to really bind only the interfaces it is listening on,
+# uncomment this option. About the only time you may need this is when
+# running another nameserver on the same machine.
 bind-interfaces
-domain-needed
-bogus-priv
+# dhcp range 2~20, 12hrs to update dhcp lease
 dhcp-range=192.168.50.2,192.168.50.20,255.255.255.0,12h
+
+# Never forward plain names (without a dot or domain part)
+domain-needed
+# Never forward addresses in the non-routed address spaces.
+bogus-priv
+# upstream dns server
 server=127.0.0.1#50000
+# don't read /etc/resolv.conf
 no-resolv
+# listen for dns server on 192.168.50.1
 listen-address=192.168.50.1
-proxy-dnssec
-cache-size=1000' | sudo tee /etc/dnsmasq.conf
+# dns cache size
+cache-size=1000
+
+conf-dir=/etc/dnsmasq.d/,*.conf' | sudo tee /etc/dnsmasq.conf
 ```
 
 `server`オプションは上流DNSキャッシュサーバーを指定できます。
@@ -183,3 +220,7 @@ https://docs.raspap.com/ap-sta/
 https://www.mikan-tech.net/entry/raspi-ap-sta-router
 
 https://qiita.com/hoto17296/items/3aa5863ba9ef13400283
+
+https://www.itmedia.co.jp/news/spv/2008/14/news042.html
+
+https://github.com/imp/dnsmasq/blob/master/dnsmasq.conf.example
