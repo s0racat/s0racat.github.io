@@ -63,33 +63,33 @@
 </span></span></code></pre></div><p>listen_addressのポートを50000番に変えてます。多分53ポートはバッティングすると思うので</p><h1 id=dnsmasqの設定>dnsmasqの設定
 <a class=anchor href=#dnsmasq%e3%81%ae%e8%a8%ad%e5%ae%9a>🔗</a></h1><p>dnsmasqはdhcp serverとlocal dns cache serverとして動いてくれます。</p><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo cp /etc/dnsmasq.conf /etc/dnsmasq.conf.bak
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#81a1c1>echo</span> <span style=color:#a3be8c>&#39;# listen interface
+</span></span><span style=display:flex><span><span style=color:#81a1c1>echo</span> <span style=color:#a3be8c>&#34;# listen interface
 </span></span></span><span style=display:flex><span><span style=color:#a3be8c>interface=uap0
 </span></span></span><span style=display:flex><span><span style=color:#a3be8c># On systems which support it, dnsmasq binds the wildcard address,
 </span></span></span><span style=display:flex><span><span style=color:#a3be8c># even when it is listening on only some interfaces. It then discards
-</span></span></span><span style=display:flex><span><span style=color:#a3be8c># requests that it shouldn&#39;</span>t reply to. This has the advantage of
-</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># working even when interfaces come and go and change address. If you</span>
-</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># want dnsmasq to really bind only the interfaces it is listening on,</span>
-</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># uncomment this option. About the only time you may need this is when</span>
-</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># running another nameserver on the same machine.</span>
-</span></span><span style=display:flex><span>bind-interfaces
-</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># dhcp range 2~20, 12hrs to update dhcp lease</span>
-</span></span><span style=display:flex><span>dhcp-range<span style=color:#81a1c1>=</span>192.168.50.2,192.168.50.20,255.255.255.0,12h
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># Never forward plain names (without a dot or domain part)</span>
-</span></span><span style=display:flex><span>domain-needed
-</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># Never forward addresses in the non-routed address spaces.</span>
-</span></span><span style=display:flex><span>bogus-priv
-</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># upstream dns server</span>
-</span></span><span style=display:flex><span>server<span style=color:#81a1c1>=</span>127.0.0.1#50000
-</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># don&#39;t read /etc/resolv.conf</span>
-</span></span><span style=display:flex><span>no-resolv
-</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># listen for dns server on 192.168.50.1</span>
-</span></span><span style=display:flex><span>listen-address<span style=color:#81a1c1>=</span>192.168.50.1
-</span></span><span style=display:flex><span><span style=color:#616e87;font-style:italic># dns cache size</span>
-</span></span><span style=display:flex><span>cache-size<span style=color:#81a1c1>=</span><span style=color:#b48ead>1000</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>conf-dir<span style=color:#81a1c1>=</span>/etc/dnsmasq.d/,*.conf<span style=color:#bf616a>&#39;</span> <span style=color:#eceff4>|</span> sudo tee /etc/dnsmasq.conf
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># requests that it shouldn&#39;t reply to. This has the advantage of
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># working even when interfaces come and go and change address. If you
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># want dnsmasq to really bind only the interfaces it is listening on,
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># uncomment this option. About the only time you may need this is when
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># running another nameserver on the same machine.
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>bind-interfaces
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># dhcp range 2~20, 12hrs to update dhcp lease
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>dhcp-range=192.168.50.2,192.168.50.20,255.255.255.0,12h
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># Never forward plain names (without a dot or domain part)
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>domain-needed
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># Never forward addresses in the non-routed address spaces.
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>bogus-priv
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># upstream dns server
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>server=127.0.0.1#50000
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># don&#39;t read /etc/resolv.conf
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>no-resolv
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># listen for dns server on 192.168.50.1
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>listen-address=192.168.50.1
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c># dns cache size
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>cache-size=1000
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>
+</span></span></span><span style=display:flex><span><span style=color:#a3be8c>conf-dir=/etc/dnsmasq.d/,*.conf&#34;</span> <span style=color:#eceff4>|</span> sudo tee /etc/dnsmasq.conf
 </span></span></code></pre></div><p><code>server</code>オプションは上流DNSキャッシュサーバーを指定できます。</p><p>この例ではさっきセットアップしたdnscrypt-proxyのアドレスとポートを指定しています。</p><h1 id=ipマスカレードを有効化>IPマスカレードを有効化
 <a class=anchor href=#ip%e3%83%9e%e3%82%b9%e3%82%ab%e3%83%ac%e3%83%bc%e3%83%89%e3%82%92%e6%9c%89%e5%8a%b9%e5%8c%96>🔗</a></h1><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#81a1c1>echo</span> <span style=color:#a3be8c>&#39;net.ipv4.ip_forward=1&#39;</span> <span style=color:#eceff4>|</span> sudo tee /etc/sysctl.d/routed-ap.conf
 </span></span></code></pre></div><h2 id=ufw>ufw
