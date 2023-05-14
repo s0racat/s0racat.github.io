@@ -114,7 +114,7 @@ dnsmasqはdhcp serverとlocal dns cache serverとして動いてくれます。
 ```bash
 sudo cp /etc/dnsmasq.conf /etc/dnsmasq.conf.bak
 
-echo '# listen interface
+echo "# listen interface
 interface=uap0
 # On systems which support it, dnsmasq binds the wildcard address,
 # even when it is listening on only some interfaces. It then discards
@@ -140,7 +140,7 @@ listen-address=192.168.50.1
 # dns cache size
 cache-size=1000
 
-conf-dir=/etc/dnsmasq.d/,*.conf' | sudo tee /etc/dnsmasq.conf
+conf-dir=/etc/dnsmasq.d/,*.conf" | sudo tee /etc/dnsmasq.conf
 ```
 
 `server`オプションは上流DNSキャッシュサーバーを指定できます。
