@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>flatpak on 忘れないように... 2</title><link>https://s0racat.github.io/tags/flatpak/</link><description>Recent content in flatpak on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Wed, 17 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/flatpak/index.xml" rel="self" type="application/rss+xml"/><item><title>Flatpakアプリケーションでのフォント変更方法</title><link>https://s0racat.github.io/posts/2021-03-17-fontchange-in-flatpak/</link><pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-03-17-fontchange-in-flatpak/</guid><description>fontconfigの設定ファイルをコピーするだけです
 ~/.var/app/${Application ID}/config/fontconfig/ # ~/.var/app/us.zoom.Zoom/config/fontconfig/ Application IDはflatpak listで確認できます
 私はnoto-fonts-cjkの設定ファイルをコピーしてみました
-Symlinkするべきかも
-archlinux,font: noto-fonts-cjkの場合は/usr/share/fontconfig/conf.avail/70-noto-cjk.confにあります</description></item></channel></rss>
+Symlinkは元のファイルにアクセス権が無いと反映されないのでコピーしないといけない
+cd ~/.var/app/us.zoom.Zoom/config/fontconfig/ cp ../../../../../.config/fontconfig/fonts.conf . archlinux,font: noto-fonts-cjkの場合は/usr/share/fontconfig/conf.avail/70-noto-cjk.confにあります</description></item></channel></rss>
