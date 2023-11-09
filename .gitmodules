@@ -1,3 +1,9 @@
 [submodule "themes/SimpleTheme"]
 	path = themes/SimpleTheme
 	url = https://github.com/1hiking/SimpleTheme.git
+[submodule "themes/hugo-PaperMod"]
+	path = themes/hugo-PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod
+[submodule "themes/PaperMod"]
+	path = themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git

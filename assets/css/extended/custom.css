@@ -1,0 +1,14 @@
+.dark {
+  --theme:#3b4252;
+  --entry:#2e3440;
+  --primary:rgb(218, 218, 219);
+  --secondary:rgb(155, 156, 157);
+  --tertiary:#2e3440;
+  --content:rgb(196, 196, 197);
+/*  --hljs-bg:#434c5e;*/
+  --code-bg:rgb(55, 56, 62);
+  --border:#81a1c1;
+}
+.chroma {
+  background-color: unset !important;
+}
