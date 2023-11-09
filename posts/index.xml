@@ -1,77 +1,180 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 忘れないように... 2</title><link>https://s0racat.github.io/posts/</link><description>Recent content in Posts on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Wed, 03 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>RaspberryPi 3b+をWiFiリピーターとして動かす(イーサネット、WiFiドングル不要)</title><link>https://s0racat.github.io/posts/2023-05-03-raspi-as-a-wifi-repeater/</link><pubDate>Wed, 03 May 2023 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2023-05-03-raspi-as-a-wifi-repeater/</guid><description>環境 🔗 ArchLinux ARM aarch64
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on s0racat&#39;s blog</title>
+    <link>https://s0racat.github.io/posts/</link>
+    <description>Recent content in Posts on s0racat&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 03 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RaspberryPi 3b&#43;をWiFiリピーターとして動かす(イーサネット、WiFiドングル不要)</title>
+      <link>https://s0racat.github.io/posts/2023-05-03-raspi-as-a-wifi-repeater/</link>
+      <pubDate>Wed, 03 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2023-05-03-raspi-as-a-wifi-repeater/</guid>
+      <description>環境 ArchLinux ARM aarch64
 systemd-networkd + dnsmasq + hostapd + ufw + (dnscrypt-proxy)
-+--------+ +- RPi -------------------+ | router | (((-+ 192.168.xxx.xxx(dhcp) | +-Laptop-------------+ +--------+ wlan0 | WLAN AP | | WLAN Client | | 192.168.50.1(static) +-))) (((-+ 192.168.50.x(dhcp) | +-------------------------+ uap0 | | +--------------------+ インストール 🔗 sudo pacman -S dnsmasq hostapd dnscrypt-proxy ufw --needed dnscrypt-proxyはオプション。
-uap0インターフェースを作成 🔗 echo &amp;#39;ACTION==&amp;#34;add&amp;#34;, SUBSYSTEM==&amp;#34;ieee80211&amp;#34;, KERNEL==&amp;#34;phy0&amp;#34;, \ RUN+=&amp;#34;/sbin/iw phy %k interface add uap0 type __ap&amp;#34;&amp;#39; | sudo tee /etc/udev/rules.</description></item><item><title>archlinuxでセキュアブート with grub</title><link>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</link><pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</guid><description>こっち(2021-03-09-arch-secureboot)が古くなってたので書きました。
++--------+ +- RPi -------------------+ | router | (((-+ 192.168.xxx.xxx(dhcp) | +-Laptop-------------+ +--------+ wlan0 | WLAN AP | | WLAN Client | | 192.168.50.1(static) +-))) (((-+ 192.168.50.x(dhcp) | +-------------------------+ uap0 | | +--------------------+ インストール sudo pacman -S dnsmasq hostapd dnscrypt-proxy ufw --needed dnscrypt-proxyはオプション。
+uap0インターフェースを作成 echo &amp;#39;ACTION==&amp;#34;add&amp;#34;, SUBSYSTEM==&amp;#34;ieee80211&amp;#34;, KERNEL==&amp;#34;phy0&amp;#34;, \ RUN+=&amp;#34;/sbin/iw phy %k interface add uap0 type __ap&amp;#34;&amp;#39; | sudo tee /etc/udev/rules.</description>
+    </item>
+    
+    <item>
+      <title>archlinuxでセキュアブート with grub</title>
+      <link>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</link>
+      <pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</guid>
+      <description>こっち(2021-03-09-arch-secureboot)が古くなってたので書きました。
 いちいちhashをenrollしなくてもいい版です。
-インストール 🔗 yay -S shim-signed mokutil sbsigntools 鍵作成 🔗 mkdir -p /var/lib/shim-signed/mok cd !$ openssl req -newkey rsa:4096 -noenc -keyout MOK.key -new -x509 -sha256 -days 3650 -subj &amp;#34;/CN=my Machine Owner Key/&amp;#34; -out MOK.crt openssl x509 -outform DER -in MOK.crt -out MOK.cer # MokManagerにenrollするのにDERフォーマットな証明書が必要 grubのstandalone版を生成 🔗 grub-mkconfig -o /tmp/grub.cfg grub-mkstandalone -O x86_64-efi --sbat=/usr/share/grub/sbat.csv -o /boot/efi/EFI/arch/grubx64.efi &amp;#34;/boot/grub/grub.cfg=/tmp/grub.cfg&amp;#34; さっきの鍵で起動したいファイルに署名 🔗 sbsign --key MOK.key --cert MOK.crt --output /boot/vmlinuz-linux /boot/vmlinuz-linux sbsign --key MOK.key --cert MOK.</description></item><item><title>Linux環境でのパフォーマンス向上と省電力化、発熱防止</title><link>https://s0racat.github.io/posts/2022-08-17-linux-performance-and-powersave/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2022-08-17-linux-performance-and-powersave/</guid><description>- Thermald 🔗 Intel製のやつ
+インストール yay -S shim-signed mokutil sbsigntools 鍵作成 mkdir -p /var/lib/shim-signed/mok cd !$ openssl req -newkey rsa:4096 -noenc -keyout MOK.key -new -x509 -sha256 -days 3650 -subj &amp;#34;/CN=my Machine Owner Key/&amp;#34; -out MOK.crt openssl x509 -outform DER -in MOK.crt -out MOK.cer # MokManagerにenrollするのにDERフォーマットな証明書が必要 grubのstandalone版を生成 grub-mkconfig -o /tmp/grub.cfg grub-mkstandalone -O x86_64-efi --sbat=/usr/share/grub/sbat.csv -o /boot/efi/EFI/arch/grubx64.efi &amp;#34;/boot/grub/grub.cfg=/tmp/grub.cfg&amp;#34; さっきの鍵で起動したいファイルに署名 sbsign --key MOK.key --cert MOK.crt --output /boot/vmlinuz-linux /boot/vmlinuz-linux sbsign --key MOK.key --cert MOK.crt --output /boot/efi/EFI/arch/grubx64.efi /boot/efi/EFI/arch/grubx64.</description>
+    </item>
+    
+    <item>
+      <title>Linux環境でのパフォーマンス向上と省電力化、発熱防止</title>
+      <link>https://s0racat.github.io/posts/2022-08-17-linux-performance-and-powersave/</link>
+      <pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2022-08-17-linux-performance-and-powersave/</guid>
+      <description>- Thermald Intel製のやつ
 CPUの周波数はコントロールしてくれない
 正直効果はあまり&amp;hellip;な気がする
 デフォルトでは、利用可能なCPUデジタル温度センサーを使用してCPU温度を監視し、ハードウェアが積極的な修正アクションを取る前に、CPU温度を制御下に維持します。thermal sysfsに皮膚温度センサーがある場合、皮膚温度を45℃以下に維持しようとします。
 引用: archwikiより
-- cpupower 🔗 論理的にCPU周波数コントロールができる
+- cpupower 論理的にCPU周波数コントロールができる
 これは効果がわかりやすいと思う
 例えば/etc/default/cpupowerに
 min_freq=&amp;#34;800MHz&amp;#34; max_freq=&amp;#34;1.8GHz&amp;#34; と書いてcpupowerのデーモンを有効化しておくと最小周波数を800MHz、最大周波数を1.8GHzに固定してくれる
-- TLP 🔗 言わずと知れた省電力化デーモン
+- TLP 言わずと知れた省電力化デーモン
 ラップトップの場合、。バッテリーが充電状態かしていないかで良い感じ切り替えをやってくれる
 powertopでどの項目を省電力化したのかが見れる
-- ananicy-cpp 🔗 元のAnanicyをC++で書き直した物
+- ananicy-cpp 元のAnanicyをC++で書き直した物
 プロセスの優先度をいじってるらしいです。
 I just wanted a tool for auto set programs nice in my system, i.e.:
-Why do I get lag, while compiling kernel and playing games? Why does dropbox client eat all my IO? Why does torrent/dc client make my laptop run slower?</description></item><item><title>Windows 10 homeでCドライブを暗号化</title><link>https://s0racat.github.io/posts/2021-09-12-encrypt-windows-with-veracrypt/</link><pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-09-12-encrypt-windows-with-veracrypt/</guid><description>Windows 10 proはbitlockerを使ってCドライブを暗号化できるのですが、Windows 10 homeはできません
-なのでVeraCryptを使ってCドライブを暗号化する方法を書きます。bitlockerを使いたくない人にも良いかもしれません
-インストール 🔗 なんらかの方法でVeraCryptを使える状態にします
-Portable版ではsystem disk暗号化機能が使えません
-構成 🔗 ここをクリック
-シングルブートかマルチブートか 🔗 初心者にはmulti-boot configurationはよくないよ 🔗 続けますか？
-暗号化オプション 🔗 パスワード 🔗 短かいパスワード警告 🔗 20字以上のパスワードをおすすめするよ
-それでも続けますか？
-ランダムデータ収集 🔗 バーがフルになるまでやった
-レスキューディスク 🔗 Skip Rescue Disk verificationにチェックすると物理メディアを作成しなくて済む
-前にレスキューディスクを作成していたとしても前のレスキューディスクは使えないよ 🔗 何回データ上書きするか 🔗 なんとなく3passにした
-1回くらいはするべきでは、と思う
-正常にアンロックできるかテスト 🔗 暗号化中&amp;hellip; 🔗 終了 🔗 おまけ 🔗 Linux側からVeracryptで暗号化されたドライブをマウント(scrapbox)</description></item><item><title>virt-managerで(u)efi bootしたい</title><link>https://s0racat.github.io/posts/2021-07-19-virt-manager-efi/</link><pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-07-19-virt-manager-efi/</guid><description>edk2-ovmf をいれます
+Why do I get lag, while compiling kernel and playing games? Why does dropbox client eat all my IO? Why does torrent/dc client make my laptop run slower? 引用: README.md</description>
+    </item>
+    
+    <item>
+      <title>Windows 10 homeでCドライブを暗号化</title>
+      <link>https://s0racat.github.io/posts/2021-09-12-encrypt-windows-with-veracrypt/</link>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-09-12-encrypt-windows-with-veracrypt/</guid>
+      <description>画像多数注意</description>
+    </item>
+    
+    <item>
+      <title>virt-managerで(u)efi bootしたい</title>
+      <link>https://s0racat.github.io/posts/2021-07-19-virt-manager-efi/</link>
+      <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-07-19-virt-manager-efi/</guid>
+      <description>edk2-ovmf をいれます
 それだけです
 sudo pacman -S edk2-ovmf ウオー
-手軽、すばらしいarchlinux</description></item><item><title>i3wmについて</title><link>https://s0racat.github.io/posts/2021-05-26-i3wm/</link><pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-05-26-i3wm/</guid><description>概要 🔗 i3wmとはタイリングウィンドウマネージャの一種です。
+手軽、すばらしいarchlinux</description>
+    </item>
+    
+    <item>
+      <title>i3wmについて</title>
+      <link>https://s0racat.github.io/posts/2021-05-26-i3wm/</link>
+      <pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-05-26-i3wm/</guid>
+      <description>概要 i3wmとはタイリングウィンドウマネージャの一種です。
 基本操作がすべてキーボードででき、$mod(prefixキー)+Enterでターミナルが起動, $mod+Shift+qでウインドウをキル, $mod+Shift+rでi3wmを再起動などできます。
 $modキーは大抵AltキーかSuper(Windows)キーです。
 これはデフォルトですがカスタムキーバインドが自由に設定できます
 他のタイリングウィンドウマネージャと違うのはフローティングウィンドウができます
 フローティングウィンドウにするには$mod+Shift+spaceでできます
-おすすめパッケージ 🔗 alacritty: ターミナル, 設定ファイルがyml kitty: ターミナル feh: 壁紙設定 nitrogen: 壁紙設定 flameshot: スクリーンショット(Qt) scrot: コマンドラインからスクリーンショット, シンプル gammastep: 画面を暖色にして目に優しく, waylandでも使える redshift:画面を暖色にして目に優しく, X11のみ使える gpicview: 画像ビューア lximage-qt: lxqtの画像ビューア gvfs-mtp: mtpデバイスをファイルマネージャーで操作, Androidなど thunar, pcmanfm, nemo: ファイルマネージャー pcmanfm-qt: ファイルマネージャー(Qt) i3lock: i3wmのためのロック画面 betterlockscreen: i3lockよりきれいなロック画面, aurにある i3status: アプレットなどを表示するバー i3status-rust: rustで書かれたi3status、設定ファイルはtoml kvantum: qt5のテーマ群, adaptaなどに似たテーマが入っていた qt5ct: qt5のテーマ設定 QT_QPA_PLATFORMTHEME変数をqt5ctに設定する必要がある
+おすすめパッケージ alacritty: ターミナル, 設定ファイルがyml kitty: ターミナル feh: 壁紙設定 nitrogen: 壁紙設定 flameshot: スクリーンショット(Qt) scrot: コマンドラインからスクリーンショット, シンプル gammastep: 画面を暖色にして目に優しく, waylandでも使える redshift:画面を暖色にして目に優しく, X11のみ使える gpicview: 画像ビューア lximage-qt: lxqtの画像ビューア gvfs-mtp: mtpデバイスをファイルマネージャーで操作, Androidなど thunar, pcmanfm, nemo: ファイルマネージャー pcmanfm-qt: ファイルマネージャー(Qt) i3lock: i3wmのためのロック画面 betterlockscreen: i3lockよりきれいなロック画面, aurにある i3status: アプレットなどを表示するバー i3status-rust: rustで書かれたi3status、設定ファイルはtoml kvantum: qt5のテーマ群, adaptaなどに似たテーマが入っていた qt5ct: qt5のテーマ設定 QT_QPA_PLATFORMTHEME変数をqt5ctに設定する必要がある
 ~/.xprofileなどに追記
-export QT_QPA_PLATFORMTHEME=qt5ct lxappearance-gtk3: gtk themeの設定 xfce4-clipman-plugin: クリップボードマネージャー pavucontrol: pulseaudioをguiで調整 pavucontrol-qt: pavucontrolのqt版 picom: コンポジター, ウィンドウ透過が設定できる, これ動かさないと画面がまともに動かないので推奨 rofi: dmenuの替え, テーマが豊富なのでカスタマイズがやりやすい rofimoji: rofiで絵文字が打てます, 絵文字フォントが必要だと思われる xfce4-notifyd: xfce4通知デーモン, これがgtkの設定尊重してくれてきれい dunst: 通知デーモン, こっちのほうがシンプルかも xss-lock: 画面の電源が切れた際とsuspendした際にロックしてくれる light: バックライト調整 playerctl: 音楽コントロール kate: kde付属のエディタ、kwriteというのも付いてくる lxqt-archiver: xarchiverのようなもの(Qt) kcalc: kdeの電卓(Qt) ksysguard: GUIのタスクマネージャー(プロセスモニター)(Qt) 設定 🔗 ユーザーの設定は~/.</description></item><item><title>sway Tips &amp; トラブルシューティング</title><link>https://s0racat.github.io/posts/2021-05-20-sway/</link><pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-05-20-sway/</guid><description>誰かがswayの記事を書いてくれているのでトラブルシューティングを中心に書きます。
+export QT_QPA_PLATFORMTHEME=qt5ct lxappearance-gtk3: gtk themeの設定 xfce4-clipman-plugin: クリップボードマネージャー pavucontrol: pulseaudioをguiで調整 pavucontrol-qt: pavucontrolのqt版 picom: コンポジター, ウィンドウ透過が設定できる, これ動かさないと画面がまともに動かないので推奨 rofi: dmenuの替え, テーマが豊富なのでカスタマイズがやりやすい rofimoji: rofiで絵文字が打てます, 絵文字フォントが必要だと思われる xfce4-notifyd: xfce4通知デーモン, これがgtkの設定尊重してくれてきれい dunst: 通知デーモン, こっちのほうがシンプルかも xss-lock: 画面の電源が切れた際とsuspendした際にロックしてくれる light: バックライト調整 playerctl: 音楽コントロール kate: kde付属のエディタ、kwriteというのも付いてくる lxqt-archiver: xarchiverのようなもの(Qt) kcalc: kdeの電卓(Qt) ksysguard: GUIのタスクマネージャー(プロセスモニター)(Qt) 設定 ユーザーの設定は~/.</description>
+    </item>
+    
+    <item>
+      <title>sway Tips &amp; トラブルシューティング</title>
+      <link>https://s0racat.github.io/posts/2021-05-20-sway/</link>
+      <pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-05-20-sway/</guid>
+      <description>誰かがswayの記事を書いてくれているのでトラブルシューティングを中心に書きます。
 フルアーカイブは https://gitlab.com/takuoh/oldblog にもあります
-情報の探し方 🔗 検索する場合、swaywm site:qiita.com(DuckDuckGo) か swaywm site:zenn.dev(DuckDuckGo)で出ます
+情報の探し方 検索する場合、swaywm site:qiita.com(DuckDuckGo) か swaywm site:zenn.dev(DuckDuckGo)で出ます
 swaywm/sway(Github Wiki)
 emersion/xdg-desktop-portal-wlr(Github Wiki)
 他にもarchwikiで検索、gentoo wikiで検索すると情報が出てきます
-Tips 🔗 サスペンドした際にロック 🔗 sway/config
+Tips サスペンドした際にロック sway/config
 exec swayidle before-sleep &amp;#39;swaylock -f -c 000000; swaymsg &amp;#34;output * dpms off&amp;#34;&amp;#39; after-resume &amp;#39;swaymsg &amp;#34;output * dpms on&amp;#34;&amp;#39; この例はswaylockを使ってますがお好みのスクリーンセーバーを使ってください
 モニターの電源(dpms)も切ってくれます
-マシンに触らなかった場合自動でロック 🔗 sway/config
-exec swayidle -w \ timeout 300 &amp;#39;swaylock -f -c 000000&amp;#39; \ timeout 600 &amp;#39;swaymsg &amp;#34;output * dpms off&amp;#34;&amp;#39; resume &amp;#39;swaymsg &amp;#34;output * dpms on&amp;#34;&amp;#39; この場合5分でロックされ、その後10分後dpmsがオフになります</description></item><item><title>Intel GVT-g</title><link>https://s0racat.github.io/posts/2021-05-14-intel-gvt-g/</link><pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-05-14-intel-gvt-g/</guid><description>前提条件 🔗 linux &amp;gt;= 4.16
+マシンに触らなかった場合自動でロック sway/config
+exec swayidle -w \ timeout 300 &amp;#39;swaylock -f -c 000000&amp;#39; \ timeout 600 &amp;#39;swaymsg &amp;#34;output * dpms off&amp;#34;&amp;#39; resume &amp;#39;swaymsg &amp;#34;output * dpms on&amp;#34;&amp;#39; この場合5分でロックされ、その後10分後dpmsがオフになります
+firefoxを動かす MOZ_ENABLE_WAYLAND=1 firefox で起動しますが</description>
+    </item>
+    
+    <item>
+      <title>Intel GVT-g</title>
+      <link>https://s0racat.github.io/posts/2021-05-14-intel-gvt-g/</link>
+      <pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-05-14-intel-gvt-g/</guid>
+      <description>前提条件 linux &amp;gt;= 4.16
 qemu &amp;gt;= 2.12
-設定 🔗 /etc/modprobe.d/i915.conf
+設定 /etc/modprobe.d/i915.conf
 options i915 ... enable_gvt=1 enable_guc=0 ... /etc/modules-load.d/intel_gvt-g.conf
 kvmgt vfio-iommu-type1 vfio-mdev /etc/default/grub
-GRUB_CMDLINE_LINUX=&amp;#34;... intel_iommu=on ...&amp;#34; sudo grub-mkconfig -o /boot/grub/grub.cfg sudo reboot lspci -Dnn|grep VGA GVT_PCI=0000\:00\:02.0 ls /sys/bus/pci/devices/$GVT_PCI/mdev_supported_types/ GVT_GUID=$(uuidgen) GVT_PCI=0000\:00\:02.0 GVT_TYPE=i915-GVTg_V5_4 echo &amp;#34;$GVT_GUID&amp;#34;|sudo tee &amp;#34;/sys/bus/pci/devices/$GVT_PCI/mdev_supported_types/$GVT_TYPE/create&amp;#34; qemu-system-x86_64 \ -device vfio-pci,sysfsdev=/sys/bus/mdev/devices/$GVT_GUID 参考 🔗 https://kagasu.hatenablog.com/entry/2021/01/05/201126
-https://wiki.archlinux.org/title/Intel_GVT-g</description></item><item><title>libvirtdのエラー解決方法メモ</title><link>https://s0racat.github.io/posts/2021-04-15-libvirt-err-truble/</link><pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-04-15-libvirt-err-truble/</guid><description>Internal error:Failed to initialize a valid firewall backend
+GRUB_CMDLINE_LINUX=&amp;#34;... intel_iommu=on ...&amp;#34; sudo grub-mkconfig -o /boot/grub/grub.cfg sudo reboot lspci -Dnn|grep VGA GVT_PCI=0000\:00\:02.0 ls /sys/bus/pci/devices/$GVT_PCI/mdev_supported_types/ GVT_GUID=$(uuidgen) GVT_PCI=0000\:00\:02.0 GVT_TYPE=i915-GVTg_V5_4 echo &amp;#34;$GVT_GUID&amp;#34;|sudo tee &amp;#34;/sys/bus/pci/devices/$GVT_PCI/mdev_supported_types/$GVT_TYPE/create&amp;#34; qemu-system-x86_64 \ -device vfio-pci,sysfsdev=/sys/bus/mdev/devices/$GVT_GUID 参考 https://kagasu.hatenablog.com/entry/2021/01/05/201126
+https://wiki.archlinux.org/title/Intel_GVT-g</description>
+    </item>
+    
+    <item>
+      <title>libvirtdのエラー解決方法メモ</title>
+      <link>https://s0racat.github.io/posts/2021-04-15-libvirt-err-truble/</link>
+      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-04-15-libvirt-err-truble/</guid>
+      <description>Internal error:Failed to initialize a valid firewall backend
 というエラーで仮想NATが起動しませんでした
 前まではebtablesを入れることで治りましたが
 最近公式リポジトリからebtablesが消滅したのでiptables-nftを入れてください
 sudo pacman -S --needed iptables-nft dnsmasq libvirtdを再起動してください
-sudo systemctl restart libvirtd https://superuser.com/questions/1063240/libvirt-failed-to-initialize-a-valid-firewall-backend</description></item><item><title>Flatpakアプリケーションでのフォント変更方法</title><link>https://s0racat.github.io/posts/2021-03-17-fontchange-in-flatpak/</link><pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-03-17-fontchange-in-flatpak/</guid><description>fontconfigの設定ファイルをコピーするだけです
+sudo systemctl restart libvirtd https://superuser.com/questions/1063240/libvirt-failed-to-initialize-a-valid-firewall-backend</description>
+    </item>
+    
+    <item>
+      <title>Flatpakアプリケーションでのフォント変更方法</title>
+      <link>https://s0racat.github.io/posts/2021-03-17-fontchange-in-flatpak/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-03-17-fontchange-in-flatpak/</guid>
+      <description>fontconfigの設定ファイルをコピーするだけです
 ~/.var/app/${Application ID}/config/fontconfig/ # ~/.var/app/us.zoom.Zoom/config/fontconfig/ Application IDはflatpak listで確認できます
 私はnoto-fonts-cjkの設定ファイルをコピーしてみました
 Symlinkは元のファイルにアクセス権が無いと反映されないのでコピーしないといけない
-cd ~/.var/app/us.zoom.Zoom/config/fontconfig/ cp ../../../../../.config/fontconfig/fonts.conf . archlinux,font: noto-fonts-cjkの場合は/usr/share/fontconfig/conf.avail/70-noto-cjk.confにあります</description></item><item><title>archlinuxでセキュアブート(簡易版)</title><link>https://s0racat.github.io/posts/2021-03-09-arch-secureboot/</link><pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-03-09-arch-secureboot/</guid><description>grubの場合 🔗 bootパーティションが/bootにマウントされていてefiパーティションが/boot/efiにマウントされている例です
+cd ~/.var/app/us.zoom.Zoom/config/fontconfig/ cp ../../../../../.config/fontconfig/fonts.conf . archlinux,font: noto-fonts-cjkの場合は/usr/share/fontconfig/conf.avail/70-noto-cjk.confにあります</description>
+    </item>
+    
+    <item>
+      <title>archlinuxでセキュアブート(簡易版)</title>
+      <link>https://s0racat.github.io/posts/2021-03-09-arch-secureboot/</link>
+      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-03-09-arch-secureboot/</guid>
+      <description>grubの場合 bootパーティションが/bootにマウントされていてefiパーティションが/boot/efiにマウントされている例です
 yay -S shim-signed sudo cp /usr/share/shim-signed/shimx64.efi /boot/efi/EFI/arch/BOOTX64.efi sudo cp /usr/share/shim-signed/mmx64.efi /boot/efi/EFI/arch/ sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label &amp;#34;Shim&amp;#34; --loader &amp;#34;\EFI\arch\BOOTX64.efi&amp;#34; あとはBOOTX64.efiを起動してgrubx64.efiのhashを登録する
-systemd-bootの場合 🔗 /bootをefiパーティションとして使っている場合,主にsystemd-boot
+systemd-bootの場合 /bootをefiパーティションとして使っている場合,主にsystemd-boot
 yay -S preloader-signed sudo cp /usr/share/preloader-signed/{PreLoader,HashTool}.efi /boot/EFI/systemd sudo mv /boot/EFI/systemd/systemd-bootx64.efi /boot/EFI/systemd/loader.efi cd ~ sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label &amp;#34;PreLoader&amp;#34; --loader &amp;#34;\EFI\systemd\PreLoader.efi&amp;#34; どちらもカーネルとefiバイナリのhashを登録しないと起動しません
 ここでハマりました
-https://wiki.archlinux.jp/index.php/%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%96%E3%83%BC%E3%83%88</description></item><item><title>LinuxのMinecraft 1.12.xで日本語入力</title><link>https://s0racat.github.io/posts/2021-02-27-cjk-input-in-minecraft1.12-on-linux/</link><pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-02-27-cjk-input-in-minecraft1.12-on-linux/</guid><description>まずはforgeを導入
+https://wiki.archlinux.jp/index.php/%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%96%E3%83%BC%E3%83%88</description>
+    </item>
+    
+    <item>
+      <title>LinuxのMinecraft 1.12.xで日本語入力</title>
+      <link>https://s0racat.github.io/posts/2021-02-27-cjk-input-in-minecraft1.12-on-linux/</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-02-27-cjk-input-in-minecraft1.12-on-linux/</guid>
+      <description>まずはforgeを導入
 http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.12.2.html
 forgeを導入する方法は他サイトを見てください
 https://github.com/Yesterday17/KokoaLinux/releases
@@ -79,4 +182,8 @@ https://github.com/Yesterday17/KokoaLinux/releases
 sourcesじゃない方をダウンロードする
 環境はfcitx5-mozcです
 作者さんのbilibiliです
-https://www.bilibili.com/read/cv4246084</description></item></channel></rss>
+https://www.bilibili.com/read/cv4246084</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,8 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>archlinux on 忘れないように... 2</title><link>https://s0racat.github.io/tags/archlinux/</link><description>Recent content in archlinux on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Mon, 12 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/archlinux/index.xml" rel="self" type="application/rss+xml"/><item><title>archlinuxでセキュアブート with grub</title><link>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</link><pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</guid><description>こっち(2021-03-09-arch-secureboot)が古くなってたので書きました。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>archlinux on s0racat&#39;s blog</title>
+    <link>https://s0racat.github.io/tags/archlinux/</link>
+    <description>Recent content in archlinux on s0racat&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 12 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>archlinuxでセキュアブート with grub</title>
+      <link>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</link>
+      <pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</guid>
+      <description>こっち(2021-03-09-arch-secureboot)が古くなってたので書きました。
 いちいちhashをenrollしなくてもいい版です。
-インストール 🔗 yay -S shim-signed mokutil sbsigntools 鍵作成 🔗 mkdir -p /var/lib/shim-signed/mok cd !$ openssl req -newkey rsa:4096 -noenc -keyout MOK.key -new -x509 -sha256 -days 3650 -subj &amp;#34;/CN=my Machine Owner Key/&amp;#34; -out MOK.crt openssl x509 -outform DER -in MOK.crt -out MOK.cer # MokManagerにenrollするのにDERフォーマットな証明書が必要 grubのstandalone版を生成 🔗 grub-mkconfig -o /tmp/grub.cfg grub-mkstandalone -O x86_64-efi --sbat=/usr/share/grub/sbat.csv -o /boot/efi/EFI/arch/grubx64.efi &amp;#34;/boot/grub/grub.cfg=/tmp/grub.cfg&amp;#34; さっきの鍵で起動したいファイルに署名 🔗 sbsign --key MOK.key --cert MOK.crt --output /boot/vmlinuz-linux /boot/vmlinuz-linux sbsign --key MOK.key --cert MOK.</description></item><item><title>archlinuxでセキュアブート(簡易版)</title><link>https://s0racat.github.io/posts/2021-03-09-arch-secureboot/</link><pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-03-09-arch-secureboot/</guid><description>grubの場合 🔗 bootパーティションが/bootにマウントされていてefiパーティションが/boot/efiにマウントされている例です
+インストール yay -S shim-signed mokutil sbsigntools 鍵作成 mkdir -p /var/lib/shim-signed/mok cd !$ openssl req -newkey rsa:4096 -noenc -keyout MOK.key -new -x509 -sha256 -days 3650 -subj &amp;#34;/CN=my Machine Owner Key/&amp;#34; -out MOK.crt openssl x509 -outform DER -in MOK.crt -out MOK.cer # MokManagerにenrollするのにDERフォーマットな証明書が必要 grubのstandalone版を生成 grub-mkconfig -o /tmp/grub.cfg grub-mkstandalone -O x86_64-efi --sbat=/usr/share/grub/sbat.csv -o /boot/efi/EFI/arch/grubx64.efi &amp;#34;/boot/grub/grub.cfg=/tmp/grub.cfg&amp;#34; さっきの鍵で起動したいファイルに署名 sbsign --key MOK.key --cert MOK.crt --output /boot/vmlinuz-linux /boot/vmlinuz-linux sbsign --key MOK.key --cert MOK.crt --output /boot/efi/EFI/arch/grubx64.efi /boot/efi/EFI/arch/grubx64.</description>
+    </item>
+    
+    <item>
+      <title>archlinuxでセキュアブート(簡易版)</title>
+      <link>https://s0racat.github.io/posts/2021-03-09-arch-secureboot/</link>
+      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-03-09-arch-secureboot/</guid>
+      <description>grubの場合 bootパーティションが/bootにマウントされていてefiパーティションが/boot/efiにマウントされている例です
 yay -S shim-signed sudo cp /usr/share/shim-signed/shimx64.efi /boot/efi/EFI/arch/BOOTX64.efi sudo cp /usr/share/shim-signed/mmx64.efi /boot/efi/EFI/arch/ sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label &amp;#34;Shim&amp;#34; --loader &amp;#34;\EFI\arch\BOOTX64.efi&amp;#34; あとはBOOTX64.efiを起動してgrubx64.efiのhashを登録する
-systemd-bootの場合 🔗 /bootをefiパーティションとして使っている場合,主にsystemd-boot
+systemd-bootの場合 /bootをefiパーティションとして使っている場合,主にsystemd-boot
 yay -S preloader-signed sudo cp /usr/share/preloader-signed/{PreLoader,HashTool}.efi /boot/EFI/systemd sudo mv /boot/EFI/systemd/systemd-bootx64.efi /boot/EFI/systemd/loader.efi cd ~ sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label &amp;#34;PreLoader&amp;#34; --loader &amp;#34;\EFI\systemd\PreLoader.efi&amp;#34; どちらもカーネルとefiバイナリのhashを登録しないと起動しません
 ここでハマりました
-https://wiki.archlinux.jp/index.php/%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%96%E3%83%BC%E3%83%88</description></item></channel></rss>
+https://wiki.archlinux.jp/index.php/%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%96%E3%83%BC%E3%83%88</description>
+    </item>
+    
+  </channel>
+</rss>

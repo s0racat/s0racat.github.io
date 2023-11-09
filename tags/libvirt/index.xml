@@ -1,9 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>libvirt on 忘れないように... 2</title><link>https://s0racat.github.io/tags/libvirt/</link><description>Recent content in libvirt on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Mon, 19 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/libvirt/index.xml" rel="self" type="application/rss+xml"/><item><title>virt-managerで(u)efi bootしたい</title><link>https://s0racat.github.io/posts/2021-07-19-virt-manager-efi/</link><pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-07-19-virt-manager-efi/</guid><description>edk2-ovmf をいれます
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>libvirt on s0racat&#39;s blog</title>
+    <link>https://s0racat.github.io/tags/libvirt/</link>
+    <description>Recent content in libvirt on s0racat&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 19 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/libvirt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>virt-managerで(u)efi bootしたい</title>
+      <link>https://s0racat.github.io/posts/2021-07-19-virt-manager-efi/</link>
+      <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-07-19-virt-manager-efi/</guid>
+      <description>edk2-ovmf をいれます
 それだけです
 sudo pacman -S edk2-ovmf ウオー
-手軽、すばらしいarchlinux</description></item><item><title>libvirtdのエラー解決方法メモ</title><link>https://s0racat.github.io/posts/2021-04-15-libvirt-err-truble/</link><pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-04-15-libvirt-err-truble/</guid><description>Internal error:Failed to initialize a valid firewall backend
+手軽、すばらしいarchlinux</description>
+    </item>
+    
+    <item>
+      <title>libvirtdのエラー解決方法メモ</title>
+      <link>https://s0racat.github.io/posts/2021-04-15-libvirt-err-truble/</link>
+      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-04-15-libvirt-err-truble/</guid>
+      <description>Internal error:Failed to initialize a valid firewall backend
 というエラーで仮想NATが起動しませんでした
 前まではebtablesを入れることで治りましたが
 最近公式リポジトリからebtablesが消滅したのでiptables-nftを入れてください
 sudo pacman -S --needed iptables-nft dnsmasq libvirtdを再起動してください
-sudo systemctl restart libvirtd https://superuser.com/questions/1063240/libvirt-failed-to-initialize-a-valid-firewall-backend</description></item></channel></rss>
+sudo systemctl restart libvirtd https://superuser.com/questions/1063240/libvirt-failed-to-initialize-a-valid-firewall-backend</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,11 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>swaywm on 忘れないように... 2</title><link>https://s0racat.github.io/tags/swaywm/</link><description>Recent content in swaywm on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Thu, 20 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/swaywm/index.xml" rel="self" type="application/rss+xml"/><item><title>sway Tips &amp; トラブルシューティング</title><link>https://s0racat.github.io/posts/2021-05-20-sway/</link><pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-05-20-sway/</guid><description>誰かがswayの記事を書いてくれているのでトラブルシューティングを中心に書きます。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>swaywm on s0racat&#39;s blog</title>
+    <link>https://s0racat.github.io/tags/swaywm/</link>
+    <description>Recent content in swaywm on s0racat&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 20 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/swaywm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sway Tips &amp; トラブルシューティング</title>
+      <link>https://s0racat.github.io/posts/2021-05-20-sway/</link>
+      <pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-05-20-sway/</guid>
+      <description>誰かがswayの記事を書いてくれているのでトラブルシューティングを中心に書きます。
 フルアーカイブは https://gitlab.com/takuoh/oldblog にもあります
-情報の探し方 🔗 検索する場合、swaywm site:qiita.com(DuckDuckGo) か swaywm site:zenn.dev(DuckDuckGo)で出ます
+情報の探し方 検索する場合、swaywm site:qiita.com(DuckDuckGo) か swaywm site:zenn.dev(DuckDuckGo)で出ます
 swaywm/sway(Github Wiki)
 emersion/xdg-desktop-portal-wlr(Github Wiki)
 他にもarchwikiで検索、gentoo wikiで検索すると情報が出てきます
-Tips 🔗 サスペンドした際にロック 🔗 sway/config
+Tips サスペンドした際にロック sway/config
 exec swayidle before-sleep &amp;#39;swaylock -f -c 000000; swaymsg &amp;#34;output * dpms off&amp;#34;&amp;#39; after-resume &amp;#39;swaymsg &amp;#34;output * dpms on&amp;#34;&amp;#39; この例はswaylockを使ってますがお好みのスクリーンセーバーを使ってください
 モニターの電源(dpms)も切ってくれます
-マシンに触らなかった場合自動でロック 🔗 sway/config
-exec swayidle -w \ timeout 300 &amp;#39;swaylock -f -c 000000&amp;#39; \ timeout 600 &amp;#39;swaymsg &amp;#34;output * dpms off&amp;#34;&amp;#39; resume &amp;#39;swaymsg &amp;#34;output * dpms on&amp;#34;&amp;#39; この場合5分でロックされ、その後10分後dpmsがオフになります</description></item></channel></rss>
+マシンに触らなかった場合自動でロック sway/config
+exec swayidle -w \ timeout 300 &amp;#39;swaylock -f -c 000000&amp;#39; \ timeout 600 &amp;#39;swaymsg &amp;#34;output * dpms off&amp;#34;&amp;#39; resume &amp;#39;swaymsg &amp;#34;output * dpms on&amp;#34;&amp;#39; この場合5分でロックされ、その後10分後dpmsがオフになります
+firefoxを動かす MOZ_ENABLE_WAYLAND=1 firefox で起動しますが</description>
+    </item>
+    
+  </channel>
+</rss>

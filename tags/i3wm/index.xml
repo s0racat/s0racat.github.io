@@ -1,9 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>i3wm on 忘れないように... 2</title><link>https://s0racat.github.io/tags/i3wm/</link><description>Recent content in i3wm on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Wed, 26 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/i3wm/index.xml" rel="self" type="application/rss+xml"/><item><title>i3wmについて</title><link>https://s0racat.github.io/posts/2021-05-26-i3wm/</link><pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2021-05-26-i3wm/</guid><description>概要 🔗 i3wmとはタイリングウィンドウマネージャの一種です。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>i3wm on s0racat&#39;s blog</title>
+    <link>https://s0racat.github.io/tags/i3wm/</link>
+    <description>Recent content in i3wm on s0racat&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 26 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/i3wm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>i3wmについて</title>
+      <link>https://s0racat.github.io/posts/2021-05-26-i3wm/</link>
+      <pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2021-05-26-i3wm/</guid>
+      <description>概要 i3wmとはタイリングウィンドウマネージャの一種です。
 基本操作がすべてキーボードででき、$mod(prefixキー)+Enterでターミナルが起動, $mod+Shift+qでウインドウをキル, $mod+Shift+rでi3wmを再起動などできます。
 $modキーは大抵AltキーかSuper(Windows)キーです。
 これはデフォルトですがカスタムキーバインドが自由に設定できます
 他のタイリングウィンドウマネージャと違うのはフローティングウィンドウができます
 フローティングウィンドウにするには$mod+Shift+spaceでできます
-おすすめパッケージ 🔗 alacritty: ターミナル, 設定ファイルがyml kitty: ターミナル feh: 壁紙設定 nitrogen: 壁紙設定 flameshot: スクリーンショット(Qt) scrot: コマンドラインからスクリーンショット, シンプル gammastep: 画面を暖色にして目に優しく, waylandでも使える redshift:画面を暖色にして目に優しく, X11のみ使える gpicview: 画像ビューア lximage-qt: lxqtの画像ビューア gvfs-mtp: mtpデバイスをファイルマネージャーで操作, Androidなど thunar, pcmanfm, nemo: ファイルマネージャー pcmanfm-qt: ファイルマネージャー(Qt) i3lock: i3wmのためのロック画面 betterlockscreen: i3lockよりきれいなロック画面, aurにある i3status: アプレットなどを表示するバー i3status-rust: rustで書かれたi3status、設定ファイルはtoml kvantum: qt5のテーマ群, adaptaなどに似たテーマが入っていた qt5ct: qt5のテーマ設定 QT_QPA_PLATFORMTHEME変数をqt5ctに設定する必要がある
+おすすめパッケージ alacritty: ターミナル, 設定ファイルがyml kitty: ターミナル feh: 壁紙設定 nitrogen: 壁紙設定 flameshot: スクリーンショット(Qt) scrot: コマンドラインからスクリーンショット, シンプル gammastep: 画面を暖色にして目に優しく, waylandでも使える redshift:画面を暖色にして目に優しく, X11のみ使える gpicview: 画像ビューア lximage-qt: lxqtの画像ビューア gvfs-mtp: mtpデバイスをファイルマネージャーで操作, Androidなど thunar, pcmanfm, nemo: ファイルマネージャー pcmanfm-qt: ファイルマネージャー(Qt) i3lock: i3wmのためのロック画面 betterlockscreen: i3lockよりきれいなロック画面, aurにある i3status: アプレットなどを表示するバー i3status-rust: rustで書かれたi3status、設定ファイルはtoml kvantum: qt5のテーマ群, adaptaなどに似たテーマが入っていた qt5ct: qt5のテーマ設定 QT_QPA_PLATFORMTHEME変数をqt5ctに設定する必要がある
 ~/.xprofileなどに追記
-export QT_QPA_PLATFORMTHEME=qt5ct lxappearance-gtk3: gtk themeの設定 xfce4-clipman-plugin: クリップボードマネージャー pavucontrol: pulseaudioをguiで調整 pavucontrol-qt: pavucontrolのqt版 picom: コンポジター, ウィンドウ透過が設定できる, これ動かさないと画面がまともに動かないので推奨 rofi: dmenuの替え, テーマが豊富なのでカスタマイズがやりやすい rofimoji: rofiで絵文字が打てます, 絵文字フォントが必要だと思われる xfce4-notifyd: xfce4通知デーモン, これがgtkの設定尊重してくれてきれい dunst: 通知デーモン, こっちのほうがシンプルかも xss-lock: 画面の電源が切れた際とsuspendした際にロックしてくれる light: バックライト調整 playerctl: 音楽コントロール kate: kde付属のエディタ、kwriteというのも付いてくる lxqt-archiver: xarchiverのようなもの(Qt) kcalc: kdeの電卓(Qt) ksysguard: GUIのタスクマネージャー(プロセスモニター)(Qt) 設定 🔗 ユーザーの設定は~/.</description></item></channel></rss>
+export QT_QPA_PLATFORMTHEME=qt5ct lxappearance-gtk3: gtk themeの設定 xfce4-clipman-plugin: クリップボードマネージャー pavucontrol: pulseaudioをguiで調整 pavucontrol-qt: pavucontrolのqt版 picom: コンポジター, ウィンドウ透過が設定できる, これ動かさないと画面がまともに動かないので推奨 rofi: dmenuの替え, テーマが豊富なのでカスタマイズがやりやすい rofimoji: rofiで絵文字が打てます, 絵文字フォントが必要だと思われる xfce4-notifyd: xfce4通知デーモン, これがgtkの設定尊重してくれてきれい dunst: 通知デーモン, こっちのほうがシンプルかも xss-lock: 画面の電源が切れた際とsuspendした際にロックしてくれる light: バックライト調整 playerctl: 音楽コントロール kate: kde付属のエディタ、kwriteというのも付いてくる lxqt-archiver: xarchiverのようなもの(Qt) kcalc: kdeの電卓(Qt) ksysguard: GUIのタスクマネージャー(プロセスモニター)(Qt) 設定 ユーザーの設定は~/.</description>
+    </item>
+    
+  </channel>
+</rss>

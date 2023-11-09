@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>raspberrypi on 忘れないように... 2</title><link>https://s0racat.github.io/tags/raspberrypi/</link><description>Recent content in raspberrypi on 忘れないように... 2</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Wed, 03 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/raspberrypi/index.xml" rel="self" type="application/rss+xml"/><item><title>RaspberryPi 3b+をWiFiリピーターとして動かす(イーサネット、WiFiドングル不要)</title><link>https://s0racat.github.io/posts/2023-05-03-raspi-as-a-wifi-repeater/</link><pubDate>Wed, 03 May 2023 00:00:00 +0000</pubDate><guid>https://s0racat.github.io/posts/2023-05-03-raspi-as-a-wifi-repeater/</guid><description>環境 🔗 ArchLinux ARM aarch64
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>raspberrypi on s0racat&#39;s blog</title>
+    <link>https://s0racat.github.io/tags/raspberrypi/</link>
+    <description>Recent content in raspberrypi on s0racat&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 03 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RaspberryPi 3b&#43;をWiFiリピーターとして動かす(イーサネット、WiFiドングル不要)</title>
+      <link>https://s0racat.github.io/posts/2023-05-03-raspi-as-a-wifi-repeater/</link>
+      <pubDate>Wed, 03 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://s0racat.github.io/posts/2023-05-03-raspi-as-a-wifi-repeater/</guid>
+      <description>環境 ArchLinux ARM aarch64
 systemd-networkd + dnsmasq + hostapd + ufw + (dnscrypt-proxy)
-+--------+ +- RPi -------------------+ | router | (((-+ 192.168.xxx.xxx(dhcp) | +-Laptop-------------+ +--------+ wlan0 | WLAN AP | | WLAN Client | | 192.168.50.1(static) +-))) (((-+ 192.168.50.x(dhcp) | +-------------------------+ uap0 | | +--------------------+ インストール 🔗 sudo pacman -S dnsmasq hostapd dnscrypt-proxy ufw --needed dnscrypt-proxyはオプション。
-uap0インターフェースを作成 🔗 echo &amp;#39;ACTION==&amp;#34;add&amp;#34;, SUBSYSTEM==&amp;#34;ieee80211&amp;#34;, KERNEL==&amp;#34;phy0&amp;#34;, \ RUN+=&amp;#34;/sbin/iw phy %k interface add uap0 type __ap&amp;#34;&amp;#39; | sudo tee /etc/udev/rules.</description></item></channel></rss>
++--------+ +- RPi -------------------+ | router | (((-+ 192.168.xxx.xxx(dhcp) | +-Laptop-------------+ +--------+ wlan0 | WLAN AP | | WLAN Client | | 192.168.50.1(static) +-))) (((-+ 192.168.50.x(dhcp) | +-------------------------+ uap0 | | +--------------------+ インストール sudo pacman -S dnsmasq hostapd dnscrypt-proxy ufw --needed dnscrypt-proxyはオプション。
+uap0インターフェースを作成 echo &amp;#39;ACTION==&amp;#34;add&amp;#34;, SUBSYSTEM==&amp;#34;ieee80211&amp;#34;, KERNEL==&amp;#34;phy0&amp;#34;, \ RUN+=&amp;#34;/sbin/iw phy %k interface add uap0 type __ap&amp;#34;&amp;#39; | sudo tee /etc/udev/rules.</description>
+    </item>
+    
+  </channel>
+</rss>
