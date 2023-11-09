@@ -7,8 +7,18 @@
   --content:rgb(196, 196, 197);
 /*  --hljs-bg:#434c5e;*/
   --code-bg:rgb(55, 56, 62);
-  --border:#81a1c1;
+/*  --border:#81a1c1;*/
 }
 .chroma {
   background-color: unset !important;
+}
+/*.post-tags a:hover, .paginav a:hover .title{
+  color: #2e3440;
+}*/
+
+/* .paginav { */
+/* 	padding: 10px; */
+/* } */
+.terms-tags a {
+	padding-bottom: 6px;
 }
