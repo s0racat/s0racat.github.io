@@ -36,7 +36,7 @@ sudo pacman -S edk2-ovmf ウオー
       <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://s0racat.github.io/posts/2021-03-09-arch-secureboot/</guid>
-      <description>grubの場合 bootパーティションが/bootにマウントされていてefiパーティションが/boot/efiにマウントされている例です
+      <description>grubの場合 bootパーティションが/bootにマウントされていてefiパーティションが/boot/efiにマウントされている場合の例です
 yay -S shim-signed sudo cp /usr/share/shim-signed/shimx64.efi /boot/efi/EFI/arch/BOOTX64.efi sudo cp /usr/share/shim-signed/mmx64.efi /boot/efi/EFI/arch/ sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label &amp;#34;Shim&amp;#34; --loader &amp;#34;\EFI\arch\BOOTX64.efi&amp;#34; あとはBOOTX64.efiを起動してgrubx64.efiのhashを登録する
 systemd-bootの場合 /bootをefiパーティションとして使っている場合,主にsystemd-boot
 yay -S preloader-signed sudo cp /usr/share/preloader-signed/{PreLoader,HashTool}.efi /boot/EFI/systemd sudo mv /boot/EFI/systemd/systemd-bootx64.efi /boot/EFI/systemd/loader.efi cd ~ sudo efibootmgr --verbose --disk /dev/nvme0n1 --part 1 --create --label &amp;#34;PreLoader&amp;#34; --loader &amp;#34;\EFI\systemd\PreLoader.efi&amp;#34; どちらもカーネルとefiバイナリのhashを登録しないと起動しません

@@ -17,7 +17,7 @@
 ~/.var/app/${Application ID}/config/fontconfig/ # ~/.var/app/us.zoom.Zoom/config/fontconfig/ Application IDはflatpak listで確認できます
 私はnoto-fonts-cjkの設定ファイルをコピーしてみました
 Symlinkは元のファイルにアクセス権が無いと反映されないのでコピーしないといけない
-cd ~/.var/app/us.zoom.Zoom/config/fontconfig/ cp ../../../../../.config/fontconfig/fonts.conf . archlinux,font: noto-fonts-cjkの場合は/usr/share/fontconfig/conf.avail/70-noto-cjk.confにあります</description>
+mkdir ~/.var/app/us.zoom.Zoom/config/fontconfig/ cd ~/.var/app/us.zoom.Zoom/config/fontconfig/ cp ../../../../../.config/fontconfig/fonts.conf . archlinux,font: noto-fonts-cjkの場合は/usr/share/fontconfig/conf.avail/70-noto-cjk.confにあります</description>
     </item>
     
   </channel>
