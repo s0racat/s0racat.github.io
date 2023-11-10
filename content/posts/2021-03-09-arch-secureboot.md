@@ -8,7 +8,7 @@ tags = ["archlinux", "secureboot", "bootloader", "efi"]
 
 # grubの場合
 
-bootパーティションが/bootにマウントされていてefiパーティションが/boot/efiにマウントされている例です
+bootパーティションが/bootにマウントされていてefiパーティションが/boot/efiにマウントされている場合の例です
 
 ```bash
 yay -S shim-signed

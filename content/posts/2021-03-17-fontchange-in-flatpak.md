@@ -18,6 +18,7 @@ Application IDは`flatpak list`で確認できます
 Symlinkは元のファイルにアクセス権が無いと反映されないのでコピーしないといけない
 
 ```bash
+mkdir ~/.var/app/us.zoom.Zoom/config/fontconfig/
 cd ~/.var/app/us.zoom.Zoom/config/fontconfig/
 cp ../../../../../.config/fontconfig/fonts.conf .
 ```
