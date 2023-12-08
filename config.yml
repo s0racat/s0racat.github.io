@@ -177,7 +177,7 @@ params:
 
     assets:
         disableHLJS: true
-         #favicon: "https://s0racat.github.io/img/icon.jpg"
+         favicon: "/favicon.ico"
     #     favicon16x16: "<link / abs url>"
     #     favicon32x32: "<link / abs url>"
     #     apple_touch_icon: "<link / abs url>"
