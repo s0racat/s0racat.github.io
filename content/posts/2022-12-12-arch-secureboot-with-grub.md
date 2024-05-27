@@ -28,23 +28,23 @@ openssl x509 -outform DER -in MOK.crt -out MOK.cer # MokManagerにenrollする�
 
 ```bash
 grub-mkconfig -o /tmp/grub.cfg
-grub-mkstandalone -O x86_64-efi --sbat=/usr/share/grub/sbat.csv -o /boot/efi/EFI/arch/grubx64.efi "/boot/grub/grub.cfg=/tmp/grub.cfg"
+grub-mkstandalone -O x86_64-efi --sbat=/usr/share/grub/sbat.csv -o /boot/efi/EFI/artix/grubx64.efi "/boot/grub/grub.cfg=/tmp/grub.cfg"
 ```
 
 ## さっきの鍵で起動したいファイルに署名
 
 ```bash
 sbsign --key MOK.key --cert MOK.crt --output /boot/vmlinuz-linux /boot/vmlinuz-linux
-sbsign --key MOK.key --cert MOK.crt --output /boot/efi/EFI/arch/grubx64.efi /boot/efi/EFI/arch/grubx64.efi
+sbsign --key MOK.key --cert MOK.crt --output /boot/efi/EFI/artix/grubx64.efi /boot/efi/EFI/artix/grubx64.efi
 ```
 
 ## shimとMokManagerのefiバイナリをコピー && NVRAMにエントリ作成
 
 ```bash
-cp /usr/share/shim-signed/shimx64.efi /boot/efi/EFI/arch/BOOTx64.EFI
-cp /usr/share/shim-signed/mmx64.efi /boot/efi/EFI/arch/
-cp /var/lib/shim-signed/mok/MOK.cer /boot/efi/EFI/arch/
-efibootmgr --unicode --disk /dev/nvme0n1 --part 1 --create --label "Shim" --loader "\EFI\arch\BOOTx64.EFI"
+cp /usr/share/shim-signed/shimx64.efi /boot/efi/EFI/artix/BOOTx64.EFI
+cp /usr/share/shim-signed/mmx64.efi /boot/efi/EFI/artix/
+cp /var/lib/shim-signed/mok/MOK.cer /boot/efi/EFI/artix/
+efibootmgr --unicode --disk /dev/nvme0n1 --part 1 --create --label "Shim" --loader "\EFI\artix\BOOTx64.EFI"
 ```
 
 それぞれのUEFIの設定を変更するなどしてShimを起動 > Enroll key from disk > MOK.cerを選択 > Continue > Yes > Continue Boot
