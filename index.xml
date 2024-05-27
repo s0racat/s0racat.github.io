@@ -27,7 +27,7 @@ uap0インターフェースを作成 echo &amp;#39;ACTION==&amp;#34;add&amp;#34
       <guid>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</guid>
       <description>こっち(2021-03-09-arch-secureboot)が古くなってたので書きました。
 いちいちhashをenrollしなくてもいい版です。
-インストール yay -S shim-signed mokutil sbsigntools 鍵作成 mkdir -p /var/lib/shim-signed/mok cd !$ openssl req -newkey rsa:4096 -noenc -keyout MOK.key -new -x509 -sha256 -days 3650 -subj &amp;#34;/CN=my Machine Owner Key/&amp;#34; -out MOK.crt openssl x509 -outform DER -in MOK.crt -out MOK.cer # MokManagerにenrollするのにDERフォーマットな証明書が必要 grubのstandalone版を生成 grub-mkconfig -o /tmp/grub.cfg grub-mkstandalone -O x86_64-efi --sbat=/usr/share/grub/sbat.csv -o /boot/efi/EFI/arch/grubx64.efi &amp;#34;/boot/grub/grub.cfg=/tmp/grub.cfg&amp;#34; さっきの鍵で起動したいファイルに署名 sbsign --key MOK.key --cert MOK.crt --output /boot/vmlinuz-linux /boot/vmlinuz-linux sbsign --key MOK.key --cert MOK.crt --output /boot/efi/EFI/arch/grubx64.efi /boot/efi/EFI/arch/grubx64.</description>
+インストール yay -S shim-signed mokutil sbsigntools 鍵作成 mkdir -p /var/lib/shim-signed/mok cd !$ openssl req -newkey rsa:4096 -noenc -keyout MOK.key -new -x509 -sha256 -days 3650 -subj &amp;#34;/CN=my Machine Owner Key/&amp;#34; -out MOK.crt openssl x509 -outform DER -in MOK.crt -out MOK.cer # MokManagerにenrollするのにDERフォーマットな証明書が必要 grubのstandalone版を生成 grub-mkconfig -o /tmp/grub.cfg grub-mkstandalone -O x86_64-efi --sbat=/usr/share/grub/sbat.csv -o /boot/efi/EFI/artix/grubx64.efi &amp;#34;/boot/grub/grub.cfg=/tmp/grub.cfg&amp;#34; さっきの鍵で起動したいファイルに署名 sbsign --key MOK.key --cert MOK.crt --output /boot/vmlinuz-linux /boot/vmlinuz-linux sbsign --key MOK.key --cert MOK.crt --output /boot/efi/EFI/artix/grubx64.efi /boot/efi/EFI/artix/grubx64.</description>
     </item>
     
     <item>

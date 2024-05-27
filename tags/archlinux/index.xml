@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>archlinux on s0racat&#39;s blog</title>
+    <title>Archlinux on s0racat&#39;s blog</title>
     <link>https://s0racat.github.io/tags/archlinux/</link>
-    <description>Recent content in archlinux on s0racat&#39;s blog</description>
+    <description>Recent content in Archlinux on s0racat&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 12 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +15,7 @@
       <guid>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</guid>
       <description>こっち(2021-03-09-arch-secureboot)が古くなってたので書きました。
 いちいちhashをenrollしなくてもいい版です。
-インストール yay -S shim-signed mokutil sbsigntools 鍵作成 mkdir -p /var/lib/shim-signed/mok cd !$ openssl req -newkey rsa:4096 -noenc -keyout MOK.key -new -x509 -sha256 -days 3650 -subj &amp;#34;/CN=my Machine Owner Key/&amp;#34; -out MOK.crt openssl x509 -outform DER -in MOK.crt -out MOK.cer # MokManagerにenrollするのにDERフォーマットな証明書が必要 grubのstandalone版を生成 grub-mkconfig -o /tmp/grub.cfg grub-mkstandalone -O x86_64-efi --sbat=/usr/share/grub/sbat.csv -o /boot/efi/EFI/arch/grubx64.efi &amp;#34;/boot/grub/grub.cfg=/tmp/grub.cfg&amp;#34; さっきの鍵で起動したいファイルに署名 sbsign --key MOK.key --cert MOK.crt --output /boot/vmlinuz-linux /boot/vmlinuz-linux sbsign --key MOK.key --cert MOK.crt --output /boot/efi/EFI/arch/grubx64.efi /boot/efi/EFI/arch/grubx64.</description>
+インストール yay -S shim-signed mokutil sbsigntools 鍵作成 mkdir -p /var/lib/shim-signed/mok cd !$ openssl req -newkey rsa:4096 -noenc -keyout MOK.key -new -x509 -sha256 -days 3650 -subj &amp;#34;/CN=my Machine Owner Key/&amp;#34; -out MOK.crt openssl x509 -outform DER -in MOK.crt -out MOK.cer # MokManagerにenrollするのにDERフォーマットな証明書が必要 grubのstandalone版を生成 grub-mkconfig -o /tmp/grub.cfg grub-mkstandalone -O x86_64-efi --sbat=/usr/share/grub/sbat.csv -o /boot/efi/EFI/artix/grubx64.efi &amp;#34;/boot/grub/grub.cfg=/tmp/grub.cfg&amp;#34; さっきの鍵で起動したいファイルに署名 sbsign --key MOK.key --cert MOK.crt --output /boot/vmlinuz-linux /boot/vmlinuz-linux sbsign --key MOK.key --cert MOK.crt --output /boot/efi/EFI/artix/grubx64.efi /boot/efi/EFI/artix/grubx64.</description>
     </item>
     
     <item>
