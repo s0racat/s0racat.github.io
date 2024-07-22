@@ -20,7 +20,7 @@ uap0インターフェースを作成 echo &amp;#39;ACTION==&amp;#34;add&amp;#34
     </item>
     
     <item>
-      <title>archlinuxでセキュアブート with grub</title>
+      <title>archlinuxでセキュアブート with grub (鍵)</title>
       <link>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</link>
       <pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate>
       
@@ -131,7 +131,7 @@ mkdir ~/.var/app/us.zoom.Zoom/config/fontconfig/ cd ~/.var/app/us.zoom.Zoom/conf
     </item>
     
     <item>
-      <title>archlinuxでセキュアブート(簡易版)</title>
+      <title>archlinuxでセキュアブート(ハッシュ登録版)</title>
       <link>https://s0racat.github.io/posts/2021-03-09-arch-secureboot/</link>
       <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
       

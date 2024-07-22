@@ -8,7 +8,7 @@
     <language>en</language>
     <lastBuildDate>Mon, 12 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://s0racat.github.io/tags/bootloader/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>archlinuxでセキュアブート with grub</title>
+      <title>archlinuxでセキュアブート with grub (鍵)</title>
       <link>https://s0racat.github.io/posts/2022-12-12-arch-secureboot-with-grub/</link>
       <pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate>
       
@@ -19,7 +19,7 @@
     </item>
     
     <item>
-      <title>archlinuxでセキュアブート(簡易版)</title>
+      <title>archlinuxでセキュアブート(ハッシュ登録版)</title>
       <link>https://s0racat.github.io/posts/2021-03-09-arch-secureboot/</link>
       <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
       
