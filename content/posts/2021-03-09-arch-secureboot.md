@@ -1,5 +1,5 @@
 +++
-title = "archlinuxでセキュアブート(簡易版)"
+title = "archlinuxでセキュアブート(ハッシュ登録版)"
 date = "2021-03-09"
 author = "soracat"
 tags = ["archlinux", "secureboot", "bootloader", "efi"]

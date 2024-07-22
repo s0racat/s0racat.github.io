@@ -1,5 +1,5 @@
 +++
-title = "archlinuxでセキュアブート with grub"
+title = "archlinuxでセキュアブート with grub (鍵)"
 date = "2022-12-12"
 author = "soracat"
 tags = ["archlinux", "secureboot", "bootloader", "efi"]
